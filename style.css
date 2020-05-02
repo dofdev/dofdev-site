@@ -1,0 +1,273 @@
+:root {
+  --device-width: 1000px;
+  --black: rgb(16, 16, 16);
+  --dark: rgb(64, 64, 64);
+  --gray: rgb(128, 128, 128);
+  --light: rgb(192, 192, 192);
+  --white: rgb(240, 240, 240);
+}
+
+body {
+  margin: 0 auto;
+  background-color: var(--gray);
+  max-width: var(--device-width);
+  font-family: sans-serif;
+}
+
+div, a, p, h1, h2, h3 {
+  color: var(--black);
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+  font-size: 24px;
+  /* font-size: 4vmin; */
+  text-rendering: auto;
+}
+
+h1 {
+  color: var(--light);
+  font-weight: bold;
+  font-size: 55px;
+  /* font-size: 10vmin; */
+  letter-spacing: 0.2vmin;
+  text-align: center;
+  padding-bottom: 0.5em;
+}
+
+h2 {
+  color: var(--black);
+}
+
+p {
+  letter-spacing: 2px;
+  line-height: 2;
+  color: var(--black);
+  padding: 0 1em 3em 1em;
+  font-size: 20px;
+  /* font-size: 2vh; */
+}
+
+a {
+  padding: 0;
+  color: var(--white);
+  text-decoration: none;
+}
+
+.btn {
+  display: block;
+  cursor: pointer;
+  user-select: none;
+  margin: 1em;
+  padding: 1em 1em;
+  background-color: var(--light);
+  color: var(--gray);
+  border: none;
+  text-align: center;
+  letter-spacing: 0.1em;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 2em;
+  font-size: 20px;
+}
+
+.small {
+  margin: auto;
+  margin-bottom: 1em;
+  width: 12em;
+  flex-grow: 2;
+}
+
+.btn:hover {
+  color: var(--white);
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  /* text-decoration: none; */
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+form {
+  margin: 0 auto;
+  padding: 1em;
+  margin-bottom: 2em;
+}
+
+form li+li {
+  margin-top: 1em;
+}
+
+.logs {
+  background-color: var(--white);
+  padding: 1em;
+  /* min-height: 42em; */
+}
+
+.logs img {
+  display: block;
+  margin: 0 auto;
+}
+
+.logs .controls {
+  display: flex;
+  /* flex-flow: wrap; */
+  justify-content: stretch;
+}
+
+.date {
+  float: right;
+  color: var(--light);
+}
+
+img {
+  max-width: 100%;
+}
+
+video {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
+#screenshots {
+  display: flex;
+  overflow: hidden;
+  margin-bottom: 1em;
+  padding: 1em 0;
+  border-left: 1px solid var(--light);
+  border-right: 1px solid var(--light);
+  overflow-x: auto;
+  scrollbar-color: var(--white);
+  flex-flow: nowrap;
+  justify-content: left;
+}
+
+#screenshots img {
+  max-height: 480px;
+  margin-right: 0.5em;
+  /* box-shadow: 0.1em 0.1em 0.5em rgba(0, 0, 0, 0.25); */
+}
+
+#content {
+  background-color: var(--white);
+  color: black;
+  padding: 2em;
+}
+
+#content img {
+  width: 100%;
+}
+
+#dofs {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+
+.dof {
+  background-position: center;
+  background-size: cover;
+  margin-bottom: 1em;
+  padding: 1em;
+  width: 100%;
+  height: 8em;
+  transition: 0.3s;
+}
+
+.dof:hover {
+  box-shadow: 0.1em 0.1em 0.5em rgba(255, 255, 255, 0.25);
+}
+
+#nav {
+  margin: 0.5em;
+  z-index: 100;
+  /* border-bottom: 2px solid var(--light); */
+  display: flex;
+  justify-content: space-between;
+  /* background-color: var(--dark); */
+  padding: 0;
+}
+
+#nav div {
+  padding: 0;
+}
+
+#nav svg {
+  padding: 0.5em;
+  fill: var(--light);
+}
+
+#footer {
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 1em;
+  margin-top: 6em;
+  color: var(--dark);
+}
+
+#logo {
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+#Contacts {
+  display: flex;
+  flex-flow: wrap;
+  margin-bottom: 2em;
+  justify-content: space-around;
+}
+
+.Contact {
+  vertical-align: bottom;
+  width: 300px;
+  height: 300px;
+  margin: 1em;
+  background-position: center;
+  background-size: cover;
+  /* box-shadow: 0.1em 0.1em 0.5em rgba(255, 255, 255, 0.25); */
+  position: relative;
+  transition: 0.3s;
+}
+
+.Contact:hover {
+  border-radius: 50%;
+}
+
+.Info {
+  color: var(--white);
+  position: absolute;
+  bottom: 0;
+  padding: 1.5em 1em;
+  left: 0;
+  right: 0;
+  text-align: center;
+  transition: 0.3s;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.Info a {
+  color: var(--white);
+  font-weight: bold;
+  font-size: 0.8em;
+  padding: 0.25em 0.5em;
+  background-color: var(--gray);
+  transition: 0.3s;
+}
+
+.Info a:hover {
+  text-decoration: underline;
+}
+
+@media only screen and (max-width: 600px) {
+  #logo {
+    width: 95%;
+  }
+}

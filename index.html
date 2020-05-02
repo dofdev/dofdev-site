@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description"
+    content="Degrees of freedom development. A general partnership specializing in XR from Spokane, Washington.">
+  <meta name="keywords" content="Ethan Merchant, Nikolas McAvoy, dof dev, degrees of freedom, xr spokane">
+  <meta name="author" content="Ethan Merchant & Nikolas McAvoy">
+  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <title>dofdev</title>
+
+  <link rel="stylesheet" href="/style.css?v1">
+  <script src="jquery-3.4.0.min.js"></script>
+  <script src="includes/includer.js"></script>
+  <script src="includes/logger.js"></script>
+</head>
+
+<body>
+  <img src="res/square-logo.webp" id="logo">
+
+  <br>
+  <div id="Contacts">
+    <div class="Contact" id="ethan" style="background-image: url(res/profiles/ethan.webp);">
+      <div class="Info">
+        Ethan Merchant
+        <br>
+        <a href="https://twitter.com/spatialfree">spatialfree</a>
+        <a href="mailto:ethan@dofdev.org">✉</a>
+      </div>
+    </div>
+    <div class="Contact" style="background-image: url(res/profiles/nik.webp);">
+      <div class="Info">
+        Nikolas McAvoy
+        <br>
+        <a href="https://twitter.com/opendegree">opendegree</a>
+        <a href="mailto:nik@dofdev.org">✉</a>
+      </div>
+    </div>
+  </div>
+  
+  <h1>releases</h1>
+  <div id="dofs">
+    <a class="dof" href="/snakeinabox" title="Snake in a Box" style="background-image: url(res/covers/snakeinabox.webp)"></a>
+    <a class="dof" href="/salishkeyboard" title="Salish Keyboard" style="background-image: url(res/covers/salishkeyboard.webp)"></a>
+  </div>
+
+  <!-- <h1>logs</h1>
+  <div class="logs">
+    <div id="log"></div>
+    <div class="controls">
+      <a onclick="prevLog()" id="prevBtn" class="btn small dark">&lt; Prev</a>
+      <a onclick="openLog()" id="openBtn" class="btn small dark">Open</a>
+      <a onclick="nextLog()" id="nextBtn" class="btn small dark">Next &gt;</a>
+    </div>
+  </div> -->
+
+  <a href="http://eepurl.com/gQJS0X" class="btn small">Subscribe</a>
+
+  <script>
+    var index = 0;
+    $(document).ready(function () {
+      index = Math.floor(Math.random() * 2);
+      $('#ethan').css("order", "" + index);
+      loadLog();
+    });
+  </script>
+
+  <div id="footerElement"></div>
+</body>
+
+</html>
