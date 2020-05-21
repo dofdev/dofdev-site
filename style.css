@@ -203,12 +203,10 @@ video {
 }
 
 #nav {
-  margin: 0.25em;
+  margin: 1em;
   z-index: 100;
-  /* border-bottom: 2px solid var(--light); */
   display: flex;
   justify-content: space-between;
-  /* background-color: var(--dark); */
   padding: 0;
 }
 
@@ -232,6 +230,7 @@ video {
 #logo {
   display: block;
   margin: auto;
+  margin-bottom: -2em;
   width: 50%;
 }
 
@@ -278,6 +277,8 @@ video {
   padding: 0.25em 0.5em;
   background-color: var(--gray);
   transition: 0.3s;
+  border: 2px solid var(--light);
+  border-radius: 2em;
 }
 
 .Info a:hover {
