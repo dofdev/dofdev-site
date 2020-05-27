@@ -86,7 +86,7 @@
 
     var decaTime = function () {
       var dt = new Date();
-      var secs = dt.getSeconds() + (60 * dt.getMinutes()) + (60 * 60 * dt.getHours());
+      var secs = dt.getUTCSeconds() + (60 * dt.getUTCMinutes()) + (60 * 60 * dt.getUTCHours());
       var standardTime = secs / 8640;
       $('#time').html(standardTime.toFixed(3));
 
