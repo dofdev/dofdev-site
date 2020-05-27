@@ -230,7 +230,7 @@ video {
 
 #time {
   font-family: 'Orbitron', sans-serif;
-  text-align: center;
+  text-align: right;
   color: var(--light);
   margin: 0.5em;
 }
