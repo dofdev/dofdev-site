@@ -21,6 +21,10 @@
 </head>
 
 <body>
+  <div id="time">
+    00:00
+  </div>
+
   <img src="res/square-logo.webp" id="logo">
 
   <br>
@@ -42,35 +46,57 @@
       </div>
     </div>
   </div>
-  
+
   <h1>releases</h1>
   <div id="dofs">
-    <a class="dof" href="/snakeinabox" title="Snake in a Box" style="background-image: url(res/covers/snakeinabox.webp)"></a>
-    <a class="dof" href="/salishkeyboard" title="Salish Keyboard" style="background-image: url(res/covers/salishkeyboard.webp)"></a>
+    <a class="dof" href="/snakeinabox" title="Snake in a Box"
+      style="background-image: url(res/covers/snakeinabox.webp)"></a>
+    <a class="dof" href="/salishkeyboard" title="Salish Keyboard"
+      style="background-image: url(res/covers/salishkeyboard.webp)"></a>
   </div>
 
   <h1>in development</h1>
 
-  <video width="100%" controls="auto" loop autoplay src="https://ipfs.io/ipfs/Qmc26FnrwFtuWfHB6CufddqZKwBFSuXKhhQK75HJF4Z6bN?filename=finger-switch.mp4"></video>
+  <video width="100%" controls="auto" loop autoplay
+    src="https://ipfs.io/ipfs/Qmc26FnrwFtuWfHB6CufddqZKwBFSuXKhhQK75HJF4Z6bN?filename=finger-switch.mp4"></video>
 
   <div class="strip">
     <div>Problems with video playback? Get IPFS and join the distributed web.
       <br>
-    <a style="text-decoration: underline;" href="https://chrome.google.com/webstore/detail/ipfs-companion/nibjojkomfdiaoajekhjakgkdhaomnch?hl=en">chrome extension</a>
+      <a style="text-decoration: underline;"
+        href="https://chrome.google.com/webstore/detail/ipfs-companion/nibjojkomfdiaoajekhjakgkdhaomnch?hl=en">chrome
+        extension</a>
     </div>
     <img src="https://ipfs.io/images/ipfs-logo.svg" href="https://ipfs.io/" style="width: auto;
-      height: auto;"/>
+      height: auto;" />
   </div>
 
   <!-- <a href="http://eepurl.com/gQJS0X" class="btn small">Subscribe</a> -->
+
 
   <script>
     var index = 0;
     $(document).ready(function () {
       index = Math.floor(Math.random() * 2);
       $('#ethan').css("order", "" + index);
-      loadLog();
+
+      decaTime();
+      setInterval(decaTime, 1000);
     });
+
+    var decaTime = function () {
+      var dt = new Date();
+      var secs = dt.getSeconds() + (60 * dt.getMinutes()) + (60 * 60 * dt.getHours());
+      var standardTime = secs / 8640;
+      $('#time').html(standardTime.toFixed(3));
+
+      $('#time').html(
+        $('#time').html().substr(0, $('#time').html().length - 1)
+        + "<span style='font-size: 16px; padding:2px;'>"
+        + $('#time').html().substr(-1)
+        + "</span>");
+    };
+
   </script>
 
   <div id="footerElement"></div>
