@@ -25,11 +25,11 @@
     00:00
   </div>
 
-  <img src="res/square-logo.webp" id="logo">
+  <img src="res/square-logo.png" id="logo">
 
   <br>
   <div id="Contacts">
-    <div class="Contact" id="ethan" style="background-image: url(res/profiles/ethan.webp);">
+    <div class="Contact" id="ethan" style="background-image: url(res/profiles/ethan.png);">
       <div class="Info">
         Ethan Merchant
         <br>
@@ -37,7 +37,7 @@
         <a href="mailto:ethan@dofdev.org">✉</a>
       </div>
     </div>
-    <div class="Contact" style="background-image: url(res/profiles/nik.webp);">
+    <div class="Contact" style="background-image: url(res/profiles/nik.png);">
       <div class="Info">
         Nikolas McAvoy
         <br>
@@ -48,19 +48,30 @@
   </div>
 
   <a href="https://discord.gg/65jZCW9" class="btn">Discord</a>
+  <br>
+  <br>
 
   <h1>releases</h1>
   <div id="dofs">
     <a class="dof" href="/snakeinabox" title="Snake in a Box"
-      style="background-image: url(res/covers/snakeinabox.webp)"></a>
+      style="background-image: url(res/covers/snakeinabox.png)"></a>
     <a class="dof" href="/salishkeyboard" title="Salish Keyboard"
-      style="background-image: url(res/covers/salishkeyboard.webp)"></a>
+      style="background-image: url(res/covers/salishkeyboard.png)"></a>
   </div>
 
   <h1>in development</h1>
+  <div id="dofs">
+    <a class="dof" href="/pixelgon" title="Pixelgon"
+      style="background-image: url(res/covers/pixelgon.png)"></a>
+    <a class="dof" href="/paperparadigm" title="Paper Paradigm"
+      style="background-image: url(res/covers/paperparadigm.png)"></a>
+  </div>
 
   <video width="100%" controls="auto" loop autoplay
     src="https://dofdev-team-bucket.storage.fleek.co/first-c.mp4"></video>
+
+  <br>
+  <br>
 
   <div class="strip">
     <div>Problems with video playback? Get IPFS and join in the distributed web.
@@ -74,7 +85,6 @@
   </div>
 
   <!-- <a href="http://eepurl.com/gQJS0X" class="btn small">Subscribe</a> -->
-
 
   <script>
     var index = 0;
@@ -91,12 +101,12 @@
       var secs = dt.getUTCSeconds() + (60 * dt.getUTCMinutes()) + (60 * 60 * dt.getUTCHours());
       var standardTime = secs / 8640;
       $('#time').html(standardTime.toFixed(3));
-
       $('#time').html(
         $('#time').html().substr(0, $('#time').html().length - 1)
         + "<span style='font-size: 16px; padding:2px;'>"
         + $('#time').html().substr(-1)
-        + "</span>");
+        + "</span>"
+      );
     };
 
   </script>

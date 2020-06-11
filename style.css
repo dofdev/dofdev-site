@@ -61,7 +61,7 @@ a {
   user-select: none;
   margin: 1em;
   padding: 1em 1em;
-  background-color: var(--black);
+  background-color: var(--light);
   color: var(--gray);
   border: none;
   text-align: center;
@@ -204,7 +204,7 @@ video {
 }
 
 #nav {
-  margin: 1em;
+  margin: 0.5em;
   z-index: 100;
   display: flex;
   justify-content: space-between;
