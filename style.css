@@ -15,7 +15,7 @@ body {
   font-family: sans-serif;
 }
 
-div, a, p, h1, h2, h3 {
+div, a, p, h1, h2, h3, ul li {
   color: var(--black);
   margin: 0;
   padding: 0;
@@ -39,14 +39,26 @@ h2 {
   color: var(--black);
 }
 
-p {
-  letter-spacing: 2px;
+p, ul li {
+  letter-spacing: 1px;
   line-height: 1.5;
   color: var(--black);
   padding: 0;
   padding-bottom: 2em;
   font-size: 16px;
   /* font-size: 2vh; */
+}
+
+ul {
+  /* margin: 0;
+  padding: 0; */
+}
+
+ul li {
+  /* text-decoration: none; */
+  list-style-type: circle;
+  padding: 0;
+  margin: 0;
 }
 
 a {
@@ -81,18 +93,6 @@ a {
 
 .btn:hover {
   color: var(--white);
-}
-
-ul {
-  margin: 0;
-  padding: 0;
-}
-
-ul li {
-  /* text-decoration: none; */
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
 }
 
 form {
@@ -280,7 +280,7 @@ video {
 
 .Info a {
   color: var(--white);
-  font-weight: bold;
+  font-weight: normal;
   font-size: 0.8em;
   padding: 0.25em 0.5em;
   background-color: var(--gray);
