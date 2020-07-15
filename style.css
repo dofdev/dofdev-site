@@ -50,11 +50,6 @@ p, ul li {
   padding-bottom: 2em;
 }
 
-ul {
-  /* margin: 0;
-  padding: 0; */
-}
-
 ul li {
   /* text-decoration: none; */
   list-style-type: circle;
