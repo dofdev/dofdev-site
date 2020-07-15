@@ -195,9 +195,9 @@ video {
 .dof {
   background-position: center;
   background-size: cover;
-  margin-bottom: 1em;
-  /* padding: 2px; */
-  width: 100%;
+  /* margin: 0.5em; */
+  margin-bottom: 1.5em;
+  width: 49%;
   height: 10em;
   transition: 0.3s;
   display: flex;
@@ -323,6 +323,9 @@ video {
 @media only screen and (max-width: 600px) {
   #logo {
     width: 95%;
+  }
+  .dof {
+    width: 100%;
   }
 }
 
