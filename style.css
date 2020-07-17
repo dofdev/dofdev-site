@@ -154,6 +154,8 @@ video {
   margin: 0 auto;
   display: block;
   padding-bottom: 2em;
+  border: none;
+  outline: none;
 }
 
 #screenshots {
@@ -349,4 +351,12 @@ video {
   flex-grow: 1;
   margin: 0em 1em;
   padding: 0;
+}
+
+.disabled {
+  color: gray;
+}
+
+.disabled div {
+  color: gray;
 }
