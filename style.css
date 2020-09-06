@@ -19,7 +19,7 @@ body {
   font-family: 'DM Mono', monospace;
 }
 
-div, a, p, h1, h2, h3, ul li {
+div, a, p, h1, h2, h3, pre, ul li {
   color: var(--black);
   margin: 0;
   padding: 0;
