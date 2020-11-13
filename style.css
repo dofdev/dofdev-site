@@ -1,10 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,300&display=swap');
 :root {
   --device-width: 800px;
-  --large-font: 55px;
-  --medium-font: 28px;
-  --normal-font: 20px;
-  --small-font: 14px;
+  --large-font: 2em;
+  --medium-font: 1.5em;
+  --normal-font: 1em;
+  --small-font: 0.8em;
   --black: rgb(16, 16, 16);
   --dark: rgb(64, 64, 64);
   --gray: rgb(128, 128, 128);
@@ -146,22 +146,6 @@ img {
   max-width: 100%;
 }
 
-/* .embed-container {
-    position: relative;
-    width: 100%;
-    height: 0;
-    padding-bottom: 56.25%;
-    margin-bottom: 2em;
-  }
-
-  .embedded-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-  } */
-
 video {
   margin: 0 auto;
   display: block;
@@ -212,7 +196,7 @@ video {
   /* margin: 0.5em; */
   margin-bottom: 1.5em;
   width: 49%;
-  height: 10em;
+  height: 12em;
   transition: 0.3s;
   display: flex;
   align-items: flex-end;
@@ -264,7 +248,7 @@ video {
   margin: 0.5em;
   position: absolute;
   right: 0;
-  display: none;
+  /* display: none; */
 }
 
 #logo {
@@ -300,8 +284,7 @@ video {
   color: var(--white);
   position: absolute;
   bottom: 0;
-  padding-bottom: 1em;
-  padding-top: 0.5em;
+  padding: 0.5em 0;
   left: 0;
   right: 0;
   text-align: center;
@@ -340,10 +323,14 @@ video {
 
 @media only screen and (max-width: 600px) {
   #logo {
-    width: 95%;
+    width: 66%;
   }
   .dof {
     width: 100%;
+  }
+  .Contact {
+    width: 180px;
+    height: 180px;
   }
 }
 

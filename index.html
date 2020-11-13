@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="/style.css?v7">
   <script src="jquery-3.4.0.min.js"></script>
+  <script src="in-view.min.js"></script>
   <script src="includes/includer.js"></script>
   <script src="includes/logger.js"></script>
   <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -28,16 +29,36 @@
 
     gtag('config', 'UA-72165994-4');
   </script>
+  <!-- <script type="module">
+    import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+    const octokit = new Octokit({ auth: '90c1f1a32161560f8d2d041295b012400c05eded' })
+    test()
+
+    async function test() {
+      const response = await octokit.request("GET /orgs/{org}/projects", {
+        org: "dofdev",
+        mediaType: {
+          previews: [
+            'inertia'
+          ]
+        }
+      });
+      
+      console.log(response)
+    }
+  </script> -->
+
 </head>
 
 <body>
   <div id="time">
     00:00
   </div>
-  <br>
+  <div style="height: 2em;"></div>
 
-  <h1 style="position: absolute; left: 0; right: 0; font-size: medium;">degrees of freedom development</h1>
   <img src="res/square-logo.png" id="logo">
+  <h1 style="font-size: 1.1em;">degrees of freedom development</h1>
+  <br>
 
   <div id="Contacts">
     <div class="Contact" id="ethan" style="background-image: url(res/profiles/ethan.png);">
@@ -80,9 +101,10 @@
   <br>
   <br>
 
-  <h1>releases</h1>
+  <h1>public releases</h1>
   <div id="dofs">
-    <a class="dof" href="/snakeinabox" title="Snake in a Box" style="background-image: url(res/covers/snakeinabox.png?v2)">
+    <a class="dof" href="/snakeinabox" title="Snake in a Box"
+      style="background-image: url(res/covers/snakeinabox.png?v2)">
       <div>Snake in a Box</div>
     </a>
     <a class="dof" href="/salishkeyboard" title="Salish Keyboard"
@@ -91,11 +113,12 @@
     </a>
   </div>
 
-  <h1>developing</h1>
+  <h1>in development</h1>
   <div id="dofs">
-    <a class="dof" href="https://opendegree.xyz" title="Open Degree" style="background-image: url(res/covers/opendegree.png?v3)">
+    <a class="dof" href="https://opendegree.xyz" title="Open Degree"
+      style="background-image: url(res/covers/opendegree.png?v3)">
       <div>Open Degree</div>
-    </a> 
+    </a>
     <a class="dof disabled" title="Vader-Life: Alyx Immortal" style="background-image: url(res/covers/vaderlife.png);">
       <div>Vader-Life: Alyx Immortal</div>
     </a>
@@ -109,10 +132,6 @@
       style="background-image: url(res/covers/openfiction.png?v1)">
       <div>Open Fiction</div>
     </a>
-    <!-- <a class="dof disabled" title="spatialfree" style="background-image: url(res/covers/spatialfree.png)">
-      <div>spatialfree</div>
-    </a>
-    -->
   </div>
 
   <h1>degrees of freedom</h1>
@@ -169,22 +188,31 @@
       index = Math.floor(Math.random() * 2);
       $('#ethan').css("order", "" + index);
 
-      decaTime();
-      setInterval(decaTime, 1000);
+      // decaTime();
+      // setInterval(decaTime, 1000);
+
+      const time = document.lastModified;
+      $('#time').html("last updated: " + time)
+
+
+      inView('#time')
+        .on('enter', el => { console.log("hello") })
+        // .on('exit', console.log("goodbye"))
     });
 
-    var decaTime = function () {
-      var dt = new Date();
-      var secs = dt.getUTCSeconds() + (60 * dt.getUTCMinutes()) + (60 * 60 * dt.getUTCHours());
-      var standardTime = secs / 8640;
-      $('#time').html(standardTime.toFixed(3));
-      $('#time').html(
-        $('#time').html().substr(0, $('#time').html().length - 1)
-        + "<span style='font-size: 16px; padding:2px;'>"
-        + $('#time').html().substr(-1)
-        + "</span>"
-      );
-    };
+
+    // var decaTime = function () {
+    //   var dt = new Date();
+    //   var secs = dt.getUTCSeconds() + (60 * dt.getUTCMinutes()) + (60 * 60 * dt.getUTCHours());
+    //   var standardTime = secs / 8640;
+    //   $('#time').html(standardTime.toFixed(3));
+    //   $('#time').html(
+    //     $('#time').html().substr(0, $('#time').html().length - 1)
+    //     + "<span style='font-size: 16px; padding:2px;'>"
+    //     + $('#time').html().substr(-1)
+    //     + "</span>"
+    //   );
+    // };
 
   </script>
 
