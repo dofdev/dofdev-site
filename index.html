@@ -136,12 +136,10 @@
 
   <h1>degrees of freedom</h1>
   <div id="dofs">
-    <a class="dof" href="/snakeinabox" title="Snake in a Box"
-      style="background-image: url(snakeinabox/dofSnakeView.gif)">
+    <a class="dof gif" href="/snakeinabox/dofSnakeView.gif" title="Snake in a Box">
       <div>°inview</div>
     </a>
-    <a class="dof" href="/snakeinabox/" title="Snake in a Box"
-      style="background-image: url(snakeinabox/dofSnakeInput.gif)">
+    <a class="dof gif" href="/snakeinabox/dofSnakeInput.gif" title="Snake in a Box">
       <div>°fullstick</div>
     </a>
   </div>
@@ -193,11 +191,6 @@
 
       const time = document.lastModified;
       $('#time').html("last updated: " + time)
-
-
-      inView('#time')
-        .on('enter', el => { console.log("hello") })
-        // .on('exit', console.log("goodbye"))
     });
 
 
