@@ -3,8 +3,8 @@
   --device-width: 800px;
   --large-font: 2em;
   --medium-font: 1.5em;
-  --normal-font: 1em;
-  --small-font: 0.8em;
+  --normal-font: 16px;
+  --small-font: 13px;
   --black: rgb(16, 16, 16);
   --dark: rgb(64, 64, 64);
   --gray: rgb(128, 128, 128);
@@ -222,6 +222,8 @@ video {
   display: flex;
   justify-content: space-between;
   padding: 0;
+  user-select: none;
+  cursor: pointer;
 }
 
 #nav div {
