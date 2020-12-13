@@ -367,3 +367,9 @@ video {
   width: 1000px;
   max-width: 100%;
 }
+
+.split {
+  border-bottom: 2px solid;
+  border-image-source: linear-gradient(90deg, rgb(128, 128, 128), rgb(192, 192, 192), rgb(128, 128, 128));
+  border-image-slice: 1;
+}
