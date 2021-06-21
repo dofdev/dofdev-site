@@ -323,19 +323,6 @@ video {
   text-decoration: underline;
 }
 
-@media only screen and (max-width: 600px) {
-  #logo {
-    width: 66%;
-  }
-  .dof {
-    width: 100%;
-  }
-  .Contact {
-    width: 180px;
-    height: 180px;
-  }
-}
-
 .strip {
   display: flex;
   justify-content: space-evenly;
@@ -388,4 +375,27 @@ video {
 p a {
   color: var(--black);
   text-decoration: underline;
+}
+
+#mission {
+  height: 95vh;
+}
+
+@media only screen and (max-width: 600px) {
+  #logo {
+    width: 66%;
+  }
+  .dof {
+    width: 100%;
+  }
+  .Contact {
+    width: 180px;
+    height: 180px;
+  }
+  #fdeg {
+    display: none;
+  }
+  #mission {
+    height: 100vh;
+  }
 }
