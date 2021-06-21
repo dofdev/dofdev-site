@@ -373,3 +373,19 @@ video {
   border-image-source: linear-gradient(90deg, rgb(128, 128, 128), rgb(192, 192, 192), rgb(128, 128, 128));
   border-image-slice: 1;
 }
+
+#fdeg {
+  height: 10vh;
+  text-align: center;
+  font-size: 8vh;
+  color: white;
+  background: radial-gradient( rgb(0 255 255), rgb(255 0 255), rgb(255 255 0)) fixed;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 1em;
+}
+
+p a {
+  color: var(--black);
+  text-decoration: underline;
+}
