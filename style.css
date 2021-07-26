@@ -235,6 +235,7 @@ video {
 }
 
 #footer {
+  font-family: monospace;
   font-size: var(--small-font);
   text-align: center;
   margin-bottom: 1em;
