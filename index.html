@@ -16,7 +16,7 @@
 
   <title>dofdev</title>
 
-  <link rel="stylesheet" href="/style.css?v15">
+  <link rel="stylesheet" href="/style.css?v16">
   <script src="jquery-3.4.0.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js"></script>
@@ -86,12 +86,21 @@
     </div>
   </div>
 
-  <a href="https://discord.gg/65jZCW9" class="btn small">
-    <svg width="24" height="24" style="padding: 0.5em 1em; fill: white;">
-      <polygon points="0,2 24,2 24,24 20,20 0,20" />
-    </svg>
-    <div>Discord</div>
-  </a>
+  <div class="btn-cluster">
+
+    <a href="https://discord.gg/65jZCW9" class="btn">
+      <svg width="24" height="24" style="padding: 0.5em 0em; padding-right: 1em; fill: rgba(0, 0, 255, 0.5);">
+        <polygon points="0,2 24,2 24,24 20,20 0,20" />
+      </svg>
+      <div>Discord</div>
+    </a>
+    <a href="/fanart" class="btn">
+      <svg width="24" height="24" style="padding: 0.5em 0em; padding-right: 1em; fill: rgba(255, 0, 0, 0.5);">
+        <polygon points="0,08 06,02 12,08 18,02 24,08 12,22" />
+      </svg>
+      <div>Fan Art</div>
+    </a>
+  </div>
 
 
   <br>
@@ -99,6 +108,10 @@
 
   <h1>public releases</h1>
   <div id="dofs">
+    <a class="dof" href="https://dofdev.itch.io/vien" title="Vien"
+      style="background-image: url(res/covers/vien.png?v2);">
+      <div>Vien</div>
+    </a>
     <a class="dof" href="/snakeinabox" title="Snake in a Box"
       style="background-image: url(res/covers/snakeinabox.png?v3)">
       <div>Snake in a Box</div>
