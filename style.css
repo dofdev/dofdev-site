@@ -436,6 +436,7 @@ video {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 1em 0;
+  font-family: auto;
 }
 
 p a {
@@ -443,9 +444,9 @@ p a {
   text-decoration: underline;
 }
 
-#mission {
-  /* height: 95vh; */
-}
+/* #mission {
+  height: 95vh;
+} */
 
 @media only screen and (max-width: 600px) {
   #logo {
