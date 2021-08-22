@@ -87,6 +87,7 @@ a {
   border: none;
   text-align: center;
   box-shadow: 0px 2px rgba(0, 0, 0, 0.15);
+  flex-basis: 0;
   flex-grow: 1;
 }
 
@@ -155,6 +156,22 @@ video {
   outline: none;
 }
 
+.vid {
+  position: relative;
+  width: 100%;
+  height: 0;
+  padding-bottom: 56.25%;
+  margin-bottom: 2em;
+}
+
+.vid iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
 #screenshots {
   display: flex;
   overflow: hidden;
@@ -184,14 +201,14 @@ video {
   width: 100%;
 }
 
-#dofs {
+#gallery {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  margin-bottom: 2em;
+  margin: 2em 0 4em 0;
 }
 
-.dof {
+.cover {
   background-position: center;
   background-size: cover;
   /* margin: 0.5em; */
@@ -204,11 +221,11 @@ video {
   box-shadow: 0px 2px rgba(0, 0, 0, 0.15);
 }
 
-.dof:hover {
+.cover:hover {
   box-shadow: 0.1em 0.1em 0.5em rgba(255, 255, 255, 0.25);
 }
 
-.dof div {
+.cover div {
   margin: 0 auto;
   vertical-align: baseline;
   padding: 8px 16px;
@@ -217,11 +234,28 @@ video {
   top: 28px;
 }
 
-#gallery {
+.dof {
+  margin-bottom: 1em;
+  transition: 0.3s;
+  width: 49%;
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 2em 0;
+  align-items: flex-start;
+  box-shadow: 0px 2px rgba(0, 0, 0, 0.15);
+}
+
+.dof a {
+  height: 12em;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+}
+
+.dof pre {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 0.5em;
 }
 
 .art {
@@ -398,9 +432,10 @@ video {
   font-size: 8vh;
   color: white;
   background: radial-gradient( rgb(0 255 255), rgb(255 0 255), rgb(255 255 0)) fixed;
+  background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 1em;
+  margin: 1em 0;
 }
 
 p a {
@@ -409,7 +444,7 @@ p a {
 }
 
 #mission {
-  height: 95vh;
+  /* height: 95vh; */
 }
 
 @media only screen and (max-width: 600px) {
@@ -422,12 +457,12 @@ p a {
   .art {
     width: 100%;
   }
+  .cover {
+    width: 100%;
+  }
   .Contact {
     width: 180px;
     height: 180px;
-  }
-  #fdeg {
-    display: none;
   }
   #mission {
     height: 100vh;

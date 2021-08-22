@@ -3,8 +3,7 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description"
-    content="We still foundationally interact with tech through the limitations 
+  <meta name="description" content="We still foundationally interact with tech through the limitations 
     of the paper paradigm. dofdev is about spatializing and condensing our interfaces, 
     to maximize human capability and expression.">
   <meta name="keywords" content="Ethan Merchant, Nikolas McAvoy, dof dev, degrees of freedom, xr spokane">
@@ -28,25 +27,26 @@
     00:00
   </div> -->
   <div id="mission">
-  <div style="height: 2em;"></div>
-  
-  <img src="res/the-problem.png?v3">
-  
-  <p style="text-indent: 4em;">Despite incredible hardware advancements,
-    developers are still clinging to the <a href="https://en.wikipedia.org/wiki/Desktop_metaphor#Paper_paradigm">paper paradigm</a>. 
-    dofdev is spatializing expressive interfaces, in order to unfetter our human potential.
-  </p>
-  <h1 style="font-size: 1.1em;">degrees of freedom development</h1>
+    <div style="height: 2em;"></div>
+
+    <img src="res/the-problem.png?v3">
+
+    <p style="text-indent: 4em;">Despite incredible hardware advancements,
+      developers are still clinging to the <a href="https://en.wikipedia.org/wiki/Desktop_metaphor#Paper_paradigm">paper
+        paradigm</a>.
+      dofdev is spatializing expressive interfaces, in order to unfetter our human potential.
+    </p>
+    <h1 style="font-size: 1.1em;">degrees of freedom development</h1>
   </div>
   <div id="fdeg">&conint;</div>
 
   <!-- <div style="position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: white; z-index: 1000;"></div> -->
-  
+
   <img src="res/square-logo.png" id="logo">
-  
+
   <!-- <div class="split"></div> -->
   <div style="height: 2em;"></div>
-  
+
   <div id="Contacts">
     <div class="Contact" id="ethan" style="background-image: url(res/profiles/ethan.png?v2);">
       <div class="Info">
@@ -84,11 +84,11 @@
       </svg>
       <div>Discord</div>
     </a>
-    <a href="/fanart" class="btn">
+    <a href="/art" class="btn">
       <svg width="24" height="24" style="padding: 0.5em 0em; padding-right: 1em; fill: rgba(255, 0, 0, 0.5);">
         <polygon points="0,08 06,02 12,08 18,02 24,08 12,22" />
       </svg>
-      <div>Fan Art</div>
+      <div>Art</div>
     </a>
   </div>
 
@@ -97,57 +97,91 @@
   <br>
 
   <h1>public releases</h1>
-  <div id="dofs">
-    <a class="dof" href="https://dofdev.itch.io/vien" title="Vien"
+  <div id="gallery">
+    <!-- <a class="cover" href="https://dofdev.itch.io/vien" title="Vien"
       style="background-image: url(res/covers/vien.png?v2);">
       <div>Vien</div>
-    </a>
-    <a class="dof" href="/snakeinabox" title="Snake in a Box"
+    </a> -->
+    <a class="cover" href="/snakeinabox" title="Snake in a Box"
       style="background-image: url(res/covers/snakeinabox.png?v3)">
       <div>Snake in a Box</div>
     </a>
-    <a class="dof" href="/salishkeyboard" title="Salish Keyboard"
+    <a class="cover" href="/salishkeyboard" title="Salish Keyboard"
       style="background-image: url(res/covers/salishkeyboard.png)">
       <div>Salish Keyboard</div>
     </a>
   </div>
-  
+
   <h1>degrees of freedom</h1>
-  <div id="dofs">
-    <a class="dof gif" href="/res/dofs/stretch-cursor.gif" title="stretch cursor">
-      <div>°stretch cursor</div>
-    </a>
-    <a class="dof gif" href="/res/dofs/inview.gif" title="inview">
-      <div>°inview</div>
-    </a>
-    <a class="dof gif" href="/res/dofs/fullstick.gif" title="fullstick">
-      <div>°fullstick</div>
-    </a>
+  <p id="footer" style="margin: 0;">
+    copyright &copy; 2021 dofdev
+    <br>
+    This is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation.
+    <br>
+    <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0-only</a>
+  </p>
+
+  <div id="gallery">
+    <div class="dof">
+      <a class="gif" href="/res/dofs/stretch-cursor.gif" title="stretch cursor"></a>
+      <pre>
+// °stretch cursor
+
+float stretch = dist(offHand, mainHand);
+Vector3 cursor = mainHand.position;
+cursor += mainHand.fwd * stretch * 3;
+</pre>
+    </div>
+
+    <div class="dof">
+      <a class="gif" href="/res/dofs/orbital-view.gif" title="orbital view"></a>
+      <pre>
+// °orbital view
+
+rig.position = -head.position;
+rig.position += head.rotation * offset;
+
+</pre>
+    </div>
+
+    <div class="dof">
+      <a class="gif" href="/res/dofs/fullstick.gif" title="fullstick"></a>
+      <pre>
+// °fullstick
+
+Vector3 dir = (stick.x, 0, stick.y);
+dir = hand.rotation * dir;
+
+</pre>
+    </div>
   </div>
 
   <h1>in development</h1>
-  <div id="dofs">
-    <a class="dof" href="/stretchsilo" title="stretch silo" style="background-image: url(res/covers/stretchsilo.png?v2);">
-      <div>stretch silo</div>
-    </a>
-    <a class="dof disabled" title="pixelgon" style="background-image: url(res/covers/pixelgon.png)">
-      <div>pixelgon</div>
-    </a>
-    <a class="dof disabled" title="Vader-Life: Alyx Immortal" style="background-image: url(res/covers/vaderlife.png?v2);">
+  <div id="gallery">
+    <a class="cover disabled" title="Vader-Life: Alyx Immortal"
+      style="background-image: url(res/covers/vaderlife.png?v2)">
       <div>Vader-Life: Alyx Immortal</div>
     </a>
-    <a class="dof" href="https://openfiction.org" title="Open Fiction"
-      style="background-image: url(res/covers/openfiction.png?v1)">
-      <div>Open Fiction</div>
+    <a class="cover" title="dofcon" href="https://github.com/dofdev/dofcon"
+      style="background-image: url(https://github.com/dofdev/dofcon/raw/main/history/2021-4-19_dofcon.gif)">
+      <div>dofcon</div>
     </a>
-    <a class="dof" href="https://opendegree.xyz" title="Open Degree"
+    <a class="cover disabled" title="pixelgon" style="background-image: url(res/covers/pixelgon.png)">
+      <div>pixelgon</div>
+    </a>
+    <a class="cover disabled" title="stretch silo" style="background-image: url(res/covers/stretchsilo.png?v2)">
+      <div>stretch silo</div>
+    </a>
+    <!-- <a class="cover" href="https://opendegree.xyz" title="Open Degree"
       style="background-image: url(res/covers/opendegree.png?v3)">
       <div>Open Degree</div>
-    </a>
+    </a> -->
   </div>
 
-  <iframe class="pxgviewer" src="/res/pxgViewer/index.html" style="border:0px #000000 none;"
-    name="pxgViewer" scrolling="no"></iframe>
+  <iframe class="pxgviewer" src="/res/pxgViewer/index.html" style="border:0px #000000 none;" name="pxgViewer"
+    scrolling="no"></iframe>
 
   <!-- <video width="100%" controls="auto" loop autoplay muted
     src="https://dofdev-team-bucket.storage.fleek.co/2020-01-11_MyBall.webm"></video> -->
