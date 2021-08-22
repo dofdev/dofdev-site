@@ -428,16 +428,16 @@ video {
 }
 
 #fdeg {
-  height: 10vh;
   text-align: center;
-  font-size: 8vh;
+  font-size: 3em;
   color: white;
   background: radial-gradient( rgb(0 255 255), rgb(255 0 255), rgb(255 255 0)) fixed;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   margin: 1em 0;
-  font-family: serif;
+  font-family: auto;
+  
 }
 
 p a {
