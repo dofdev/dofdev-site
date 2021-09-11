@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#navElement").load("/includes/nav.xml", function () {
+  $("#navElement").load("/includes/nav.xml?v2", function () {
     $("#nav [href]").each(function () {
       if (window.location.href.includes(this.href)) {
         $(this).addClass("active");
@@ -7,7 +7,7 @@ $(document).ready(function () {
     });
   });
     
-  $("#footerElement").load("/includes/footer.html");
+  $("#footerElement").load("/includes/footer.html?v2");
 
   // $("#feeds").load("feeds.php", { limit: 25 }, function () {
   //   alert("The last 25 entries in the feed have been loaded");
