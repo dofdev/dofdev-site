@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Original soundtracks from all of dofdev's releases."
+    />
+    <meta name="keywords" content="dofdev ost" />
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+
+    <title>music | dofdev</title>
+
+    <link rel="stylesheet" href="/style.css?v11" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="/in-view.min.js"></script>
+    <script src="/includes/includer.js"></script>
+  </head>
+
+  <body>
+    <div id="navElement"></div>
+
+    <!-- <h1>Fan Art</h1> -->
+    <p style="text-align: center;">[ original soundtracks ]</p>
+
+    <br />
+    <audio id="audio" controls style="display: block; margin: auto;"></audio>
+    <div id="playing" style="text-align: center; margin-top: 1em;">
+      select an album below
+    </div>
+    <br />
+
+    <div
+      class="album noSelect"
+      style="background: url('vien/cover-square.png');"
+    >
+      <div class="track" src="vien/menu.mp3">menu</div>
+      <div class="track" src="vien/game.mp3">game</div>
+    </div>
+
+    <div
+      class="album noSelect"
+      style="background: url('snakeinabox/cover-square.png');"
+    >
+      <div class="track" src="snakeinabox/snakelife.ogg">snake life</div>
+      <div class="track" src="snakeinabox/aloe for your snake bite.ogg">
+        aloe for that snake bite
+      </div>
+      <div class="track" src="snakeinabox/sweet aloe.ogg">aloe for your snake bite</div>
+    </div>
+
+    <br />
+    <a href="/" target="_blank" style="text-align: center; display: block;">
+      keep listening &
+      <br />
+      resume browsing
+    </a>
+    <br>
+    <iframe
+      class="pxgviewer"
+      src="/res/pxgViewer/index.html"
+      style="border: 0px #000000 none;"
+      name="pxgViewer"
+      scrolling="no"
+    ></iframe>
+
+    <div id="footerElement"></div>
+    <script>
+      $('.album').click(function () {
+        $(this).toggleClass('open')
+      })
+
+      $('.track').click(function (e) {
+        e.stopPropagation()
+        // console.log('clicked');
+        $('#audio').stop()
+        $('#audio').attr('src', $(this).attr('src'))
+        $('#audio')[0].volume = 0.0
+        $('#audio')[0].play()
+        $('#audio').animate({ volume: 1.0 }, 3000)
+
+        $('#playing').html('&sung; ' + this.innerHTML)
+      })
+    </script>
+
+    <style>
+      .album {
+        display: block;
+        margin: auto;
+        margin-bottom: 1em;
+        padding: 32px;
+        width: 192px;
+        height: 192px;
+        background-size: contain !important;
+        border-bottom: 2px solid var(--dark);
+        cursor: pointer;
+      }
+
+      .open {
+        background: black !important;
+      }
+
+      .album .track {
+        display: none;
+      }
+
+      .open .track {
+        display: block;
+        color: white;
+      }
+
+      .track {
+        margin: 1em 0.5em;
+        width: fit-content;
+      }
+
+      .track:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </body>
+</html>

@@ -3,10 +3,9 @@
 
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="We still foundationally interact with tech through the limitations 
-    of the paper paradigm. dofdev is about spatializing and condensing our interfaces, 
-    to maximize human capability and expression.">
-  <meta name="keywords" content="Ethan Merchant, Nikolas McAvoy, dof dev, degrees of freedom, xr spokane">
+  <meta name="description"
+    content="The paper paradigm is a deprecated constraint, so we are opening new degrees of spatial interactions *free to the world. To contribute to a better future.">
+  <meta name="keywords" content="Ethan Merchant, Nikolas McAvoy, dof dev, degrees of freedom, xr developer">
   <meta name="author" content="Ethan Merchant & Nikolas McAvoy">
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
@@ -15,104 +14,123 @@
 
   <title>dofdev</title>
 
-  <link rel="stylesheet" href="/style.css?v21">
-  <script src="jquery-3.4.0.min.js"></script>
+  <link rel="stylesheet" href="/style.css?v22">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js"></script>
-  <script src="includes/logger.js"></script>
 </head>
 
 <body>
+  <div id="navElement"></div>
   <!-- <div id="time">
     00:00
   </div> -->
   <div id="mission">
-    <div style="height: 2em;"></div>
+    <!-- <div style="height: 2em;"></div> -->
 
-    <img src="res/the-problem.png?v3">
+    <img src="res/the-problem.png?v4">
 
-    <p style="text-indent: 4em;">Despite incredible hardware advancements,
-      developers are still clinging to the <a href="https://en.wikipedia.org/wiki/Desktop_metaphor#Paper_paradigm">paper
-        paradigm</a>.
-      dofdev is spatializing expressive interfaces, in order to unfetter our human potential.
+    <p style="text-align: right">
+      *In an effort to open degrees of
+      <br>spatial interaction free
+      <br>to the world?
     </p>
-    <h1 style="font-size: 1.1em;">degrees of freedom development</h1>
+    <img src="res/square-logo.png" id="logo">
+    <h1 style="font-size: 1.1em; padding-bottom: 0;">degrees of freedom development</h1>
+    <br>
   </div>
-  <div id="fdeg">&conint;</div>
+  <!-- <div id="fdeg">&conint;</div> -->
 
   <!-- <div style="position: fixed; left: 0; right: 0; top: 0; bottom: 0; background: white; z-index: 1000;"></div> -->
 
-  <img src="res/square-logo.png" id="logo">
 
   <!-- <div class="split"></div> -->
-  <div style="height: 2em;"></div>
+  <div style="height: 1em;"></div>
 
   <div id="Contacts">
-    <div class="Contact" id="ethan" style="background-image: url(res/profiles/ethan.png?v2);">
+    <div class="Contact" id="ethan">
+      <div class="profile-pic" style="background-image: url(res/profiles/ethan.png?v3)"></div>
       <div class="Info">
-        <div>Ethan Merchant</div>
-        <div class="break"></div>
-        <a href="https://twitter.com/spatialfree">spatialfree</a>
-        <a href="mailto:ethan@dofdev.org">
-          <svg width="18" height="12" style="fill:none; stroke: rgb(64, 64, 64);">
-            <polyline points="0,0 18,0 18,12, 0,12 0,0" style="stroke-width:2" />
-            <polyline points="0,1 9,7 18,1" style="stroke-width:1" />
-          </svg>
-        </a>
+        <div style="color: white; font-size: var(--normal-font);">Ethan Merchant</div>
+        <a href="https://twitter.com/spatialfree">@spatialfree</a>
+        <br>
+        <div>vscode | unity | blender</div>
+        <div>[ engineer ]</div>
       </div>
     </div>
-    <div class="Contact" style="background-image: url(res/profiles/nik.png);">
+    <!-- <div class="break"></div> -->
+    <div class="Contact">
+      <div class="profile-pic" style="background-image: url(res/profiles/nik.png);"></div>
       <div class="Info">
-        <div>Nikolas McAvoy</div>
-        <div class="break"></div>
-        <a href="https://twitter.com/opendegree">opendegree</a>
-        <a style="font-family: sans-serif;" href="mailto:nik@dofdev.org">
-          <svg width="18" height="12" style="fill:none; stroke: rgb(64, 64, 64);">
-            <polyline points="0,0 18,0 18,12, 0,12 0,0" style="stroke-width:2" />
-            <polyline points="0,1 9,7 18,1" style="stroke-width:1" />
-          </svg>
-        </a>
+        <div style="color: white; font-size: var(--normal-font);">Niko Ryan</div>
+        <a href="https://twitter.com/opendegree">@opendegree</a>
+        <br>
+        <div>vcv rack | audacity</div>
+        <div>[ designer ]</div>
       </div>
     </div>
   </div>
 
-  <div class="btn-cluster">
+  <div class="btn-cluster" style="display:none">
 
-    <a href="https://discord.gg/65jZCW9" class="btn">
-      <svg width="24" height="24" style="padding: 0.5em 0em; padding-right: 1em; fill: rgba(0, 0, 255, 0.5);">
-        <polygon points="0,2 24,2 24,24 20,20 0,20" />
-      </svg>
-      <div>Discord</div>
-    </a>
     <a href="/art" class="btn">
-      <svg width="24" height="24" style="padding: 0.5em 0em; padding-right: 1em; fill: rgba(255, 0, 0, 0.5);">
+      <svg width="24" height="24"
+        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(255, 0, 0, 0.5); stroke: rgb(182, 0, 0);">
         <polygon points="0,08 06,02 12,08 18,02 24,08 12,22" />
       </svg>
-      <div>Art</div>
+      <div>art</div>
     </a>
+
+    <a href="https://discord.gg/65jZCW9" class="btn">
+      <svg width="24" height="24"
+        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(78, 94, 240, 0.5); stroke: rgb(0, 0, 182)">
+        <polygon points="02,04 22,04 22,20 08,20 02,24" />
+      </svg>
+      <div>discord</div>
+    </a>
+
+    <a href="mailto:contact@dofdev.org" class="btn">
+      <svg width="24" height="24"
+        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(40, 255, 68, 0.5); stroke: rgb(0, 182, 0)">
+        <polygon points="06,00 12,12 06,24 00,12" />
+        <polygon points="18,00 21,05 18,10 15,05" />
+      </svg>
+      <div>consult</div>
+    </a>
+
+    <a href="https://patreon.com/dofdev" class="btn">
+      <svg width="24" height="24"
+        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(249, 103, 84, 0.74); stroke: rgb(184, 76, 62)">
+        <polygon points="01,02 05,02 05,22 01,22" />
+        <circle cx="16" cy="10" r="8" />
+      </svg>
+      <div>patreon</div>
+    </a>
+
   </div>
 
 
   <br>
   <br>
 
-  <h1>public releases</h1>
+  <h1>projects</h1>
+  <div style="text-align: center;">[ FREE grayscaled versions ]</div>
   <div id="gallery">
     <a class="cover" href="https://dofdev.itch.io/vien" title="Vien"
       style="background-image: url(res/covers/vien.png?v2);">
-      <div>Vien</div>
+      <div>vien | $6</div>
     </a>
     <a class="cover" href="/snakeinabox" title="Snake in a Box"
       style="background-image: url(res/covers/snakeinabox.png?v3)">
-      <div>Snake in a Box</div>
+      <div>snake in a box | $3</div>
     </a>
     <a class="cover" href="/salishkeyboard" title="Salish Keyboard"
       style="background-image: url(res/covers/salishkeyboard.png)">
-      <div>Salish Keyboard</div>
+      <div>salish keyboard</div>
     </a>
   </div>
 
-  <h1>degrees of freedom</h1>
+  <h1>dofs</h1>
   <p id="footer" style="margin: 0;">
     copyright &copy; 2018-2021 dofdev
     <br>
@@ -129,9 +147,9 @@
       <pre>
 // °stretch cursor
 
-float stretch = dist(offHand, mainHand);
-Vector3 cursor = mainHand.position;
-cursor += mainHand.fwd * stretch * 3;
+float stretch = dist(offHand, mainHand)
+Vector3 cursor = mainHand.position
+cursor += mainHand.fwd * stretch * 3
 </pre>
     </div>
 
@@ -140,8 +158,8 @@ cursor += mainHand.fwd * stretch * 3;
       <pre>
 // °orbital view
 
-rig.position = -head.position;
-rig.position += head.rotation * offset;
+rig.position = -head.position
+rig.position += head.rotation * offset
 
 </pre>
     </div>
@@ -151,8 +169,8 @@ rig.position += head.rotation * offset;
       <pre>
 // °fullstick
 
-Vector3 dir = (stick.x, 0, stick.y);
-dir = hand.rotation * dir;
+Vector3 dir = (stick.x, 0, stick.y)
+dir = hand.rotation * dir
 
 </pre>
     </div>
@@ -162,38 +180,40 @@ dir = hand.rotation * dir;
       <pre>
 // °color cube
 
-Vector3 pos = cursor.position;
-Color color = (pos.x, pos.y, pos.z);
-    
+Vector3 pos = cursor.position
+Color color = (pos.x, pos.y, pos.z)
+Render(outline)
 </pre>
     </div>
 
   </div>
 
-  <h1>in development</h1>
-  <div id="gallery">
-    <a class="cover disabled" title="Vader-Life: Alyx Immortal"
+  <!-- <h1>in dev</h1> -->
+  <!-- <div style="text-align: center;">[ patreon early access ]</div> -->
+  <!-- <div id="gallery"> -->
+    <!-- <a class="cover disabled" title="Vader-Life: Alyx Immortal"
       style="background-image: url(res/covers/vaderlife.png?v2)">
       <div>Vader-Life: Alyx Immortal</div>
-    </a>
+    </a> -->
     <!-- <a class="cover" title="dofcon" href="https://github.com/dofdev/dofcon"
       style="background-image: url(res/covers/dofcon.gif)">
       <div>dofcon</div>
     </a> -->
-    <a class="cover disabled" title="pixelgon" style="background-image: url(res/covers/pixelgon.png)">
+    <!-- <a class="cover" title="pixelgon" href="/pixelgon" style="background-image: url(res/covers/pixelgon.png)">
       <div>pixelgon</div>
     </a>
-    <a class="cover disabled" title="stretch silo" style="background-image: url(res/covers/stretchsilo.png?v2)">
+    <a class="cover" title="stretch silo" href="/stretchsilo"
+      style="background-image: url(res/covers/stretchsilo.png?v2)">
       <div>stretch silo</div>
-    </a>
+    </a> -->
     <!-- <a class="cover" href="https://opendegree.xyz" title="Open Degree"
       style="background-image: url(res/covers/opendegree.png?v3)">
       <div>Open Degree</div>
     </a> -->
-  </div>
+  <!-- </div> -->
 
-  <iframe class="pxgviewer" src="/res/pxgViewer/index.html" style="border:0px #000000 none;" name="pxgViewer"
-    scrolling="no"></iframe>
+  <!-- <iframe class="pxgviewer" src="/res/pxgViewer/index.html" style="border:0px #000000 none;" name="pxgViewer"
+    scrolling="no"></iframe> -->
 
   <!-- <video width="100%" controls="auto" loop autoplay muted
     src="https://dofdev-team-bucket.storage.fleek.co/2020-01-11_MyBall.webm"></video> -->
