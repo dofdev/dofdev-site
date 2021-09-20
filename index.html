@@ -140,16 +140,28 @@
     <br>
     <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0-only</a>
   </p>
-
+  
   <div id="gallery">
+
+    <div class="dof">
+      <a class="gif" href="/res/dofs/color-cube.gif" title="color cube"></a>
+      <pre>
+// °color cube
+
+color.rgb = (pos.x, pos.y, pos.z)
+
+Render(outline)
+</pre>
+    </div>
+
     <div class="dof">
       <a class="gif" href="/res/dofs/stretch-cursor.gif" title="stretch cursor"></a>
       <pre>
 // °stretch cursor
 
-float stretch = dist(offHand, mainHand)
-Vector3 cursor = mainHand.position
-cursor += mainHand.fwd * stretch * 3
+stretch = max(dist(offHand, mainHand) - deadzone, 0)
+cursor = mainHand.pos + mainHand.fwd * stretch * 3
+
 </pre>
     </div>
 
@@ -158,8 +170,8 @@ cursor += mainHand.fwd * stretch * 3
       <pre>
 // °orbital view
 
-rig.position = -head.position
-rig.position += head.rotation * offset
+oriel.pos = head.rotation * forward
+
 
 </pre>
     </div>
@@ -169,20 +181,9 @@ rig.position += head.rotation * offset
       <pre>
 // °fullstick
 
-Vector3 dir = (stick.x, 0, stick.y)
-dir = hand.rotation * dir
-
-</pre>
-    </div>
-
-    <div class="dof">
-      <a class="gif" href="/res/dofs/color-cube.gif" title="color cube"></a>
-      <pre>
-// °color cube
-
-Vector3 pos = cursor.position
-Color color = (pos.x, pos.y, pos.z)
-Render(outline)
+rot = (stick.y * 90, 0, stick.x * 90)
+dir = stick.pressed ? down : up
+output = hand.rotation * rot * dir
 </pre>
     </div>
 
