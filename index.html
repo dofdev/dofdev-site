@@ -18,6 +18,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js?v1"></script>
+  <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
 
 <body>
@@ -31,9 +32,9 @@
     <img src="res/the-problem.png?v4">
 
     <p style="text-align: right">
-      *In an effort to open degrees of
+      *An effort to open degrees of
       <br>spatial interaction free
-      <br>to the world?
+      <br>to the world.
     </p>
     <img src="res/square-logo.png" id="logo">
     <h1 style="font-size: 1.1em; padding-bottom: 0;">degrees of freedom development</h1>
@@ -54,8 +55,8 @@
         <div style="color: white; font-size: var(--normal-font);">Ethan Merchant</div>
         <a href="https://twitter.com/spatialfree">@spatialfree</a>
         <br>
-        <div>vscode | unity | blender</div>
-        <div>[ engineer ]</div>
+        <!-- <div>vscode | unity | blender</div>
+        <div>[ engineer ]</div> -->
       </div>
     </div>
     <!-- <div class="break"></div> -->
@@ -65,8 +66,8 @@
         <div style="color: white; font-size: var(--normal-font);">Niko Ryan</div>
         <a href="https://twitter.com/opendegree">@opendegree</a>
         <br>
-        <div>vcv rack | audacity</div>
-        <div>[ designer ]</div>
+        <!-- <div>vcv rack | audacity</div>
+        <div>[ designer ]</div> -->
       </div>
     </div>
   </div>
@@ -153,7 +154,18 @@ color.rgb = (pos.x, pos.y, pos.z)
 Render(outline)
 </pre>
     </div>
+<!--  -->
+    <div class="dof">
+      <a class="gif" href="/res/dofs/oriel.png" title="fullstick"></a>
+      <pre>
+// °oriel
 
+flip cube normals
+cull backfaces
+stencil shader render contents
+</pre>
+    </div>
+<!--  -->
     <div class="dof">
       <a class="gif" href="/res/dofs/stretch-cursor.gif" title="stretch cursor"></a>
       <pre>
@@ -164,7 +176,7 @@ cursor = mainHand.pos + mainHand.fwd * stretch * 3
 
 </pre>
     </div>
-
+<!--  -->
     <div class="dof">
       <a class="gif" href="/res/dofs/orbital-view.gif" title="orbital view"></a>
       <pre>
@@ -175,7 +187,7 @@ oriel.pos = head.rotation * forward
 
 </pre>
     </div>
-
+<!--  -->
     <div class="dof">
       <a class="gif" href="/res/dofs/fullstick.gif" title="fullstick"></a>
       <pre>
@@ -223,6 +235,11 @@ output = hand.rotation * rot * dir
     src="https://dofdev-team-bucket.storage.fleek.co/first-c.mp4"></video> -->
 
   <br>
+  <br>
+
+  <!-- <iframe src="https://discord.com/widget?id=557638031805513757&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
+
+  <div class="vid" id="twitch-embed"></div>
   <br>
 
   <!-- <div class="strip">
@@ -276,6 +293,20 @@ output = hand.rotation * rot * dir
     //     + "</span>"
     //   );
     // };
+
+    var embed = new Twitch.Embed("twitch-embed", {
+      width: 854,
+      height: 480,
+      channel: "spatialfree",
+      layout: "video",
+      muted: false,
+      autoplay: false
+    });
+
+    embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+      var player = embed.getPlayer()
+      player.play()
+    });
 
   </script>
 
