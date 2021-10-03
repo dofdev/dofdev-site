@@ -141,65 +141,8 @@
     <br>
     <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0-only</a>
   </p>
-  
-  <div id="gallery">
 
-    <div class="dof">
-      <a class="gif" href="/res/dofs/color-cube.gif" title="color cube"></a>
-      <pre>
-// °color cube
-
-color.rgb = (pos.x, pos.y, pos.z)
-
-Render(outline)
-</pre>
-    </div>
-<!--  -->
-    <div class="dof">
-      <a class="gif" href="/res/dofs/oriel.png" title="fullstick"></a>
-      <pre>
-// °oriel
-
-flip cube normals
-cull backfaces
-stencil shader render contents
-</pre>
-    </div>
-<!--  -->
-    <div class="dof">
-      <a class="gif" href="/res/dofs/stretch-cursor.gif" title="stretch cursor"></a>
-      <pre>
-// °stretch cursor
-
-stretch = max(dist(offHand, mainHand) - deadzone, 0)
-cursor = mainHand.pos + mainHand.fwd * stretch * 3
-
-</pre>
-    </div>
-<!--  -->
-    <div class="dof">
-      <a class="gif" href="/res/dofs/orbital-view.gif" title="orbital view"></a>
-      <pre>
-// °orbital view
-
-oriel.pos = head.rotation * forward
-
-
-</pre>
-    </div>
-<!--  -->
-    <div class="dof">
-      <a class="gif" href="/res/dofs/fullstick.gif" title="fullstick"></a>
-      <pre>
-// °fullstick
-
-rot = (stick.y * 90, 0, stick.x * 90)
-dir = stick.pressed ? down : up
-output = hand.rotation * rot * dir
-</pre>
-    </div>
-
-  </div>
+  <div id="dofs"></div>
 
   <!-- <h1>in dev</h1> -->
   <!-- <div style="text-align: center;">[ patreon early access ]</div> -->
@@ -236,25 +179,17 @@ output = hand.rotation * rot * dir
 
   <br>
   <br>
+  <br>
 
   <!-- <iframe src="https://discord.com/widget?id=557638031805513757&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
-
+  
+  <h1>live</h1>
+  <div style="text-align: center;">[ development and more ]</div>
+  <br>
   <div class="vid" id="twitch-embed"></div>
   <br>
 
-  <!-- <div class="strip">
-    <img src="res/eth-wallet.jpg">
-    <div>
-      <p>
-        We were able to earn our Oculus Rift-S dev kits with "Snake in a Box", but we still need to get Nik a VR
-        compatible workstation. So we can finally tackle multi-user dofs.
-      </p>
-      <b>$115 / $1000</b> <small>*updated manually</small>
-      <br>
-      <small style="color: white;">ETH 0x0978dd8Dc963F79d21FA9DB15b20A7CB111F846F</small>
-    </div>
-  </div>
-
+  <!-- 
   <div class="strip">
     <img src="https://ipfs.io/images/ipfs-logo.svg" href="https://ipfs.io/">
     <div>Get IPFS and join in the distributed web.
@@ -265,20 +200,108 @@ output = hand.rotation * rot * dir
     </div>
   </div> -->
 
-  <!-- <a href="http://eepurl.com/gQJS0X" class="btn small">Subscribe</a> -->
-
   <script>
-    var index = 0;
+
+    var tags = [ "all", "head", "eyes", "hands" ]
+    const dofTree = [
+      { name:'stretch-cursor', tags:['hands'], code:[
+        { context:'°', code:'stretch = max(dist(offHand, mainHand) - deadzone, 0)<br>cursor = mainHand.pos + mainHand.fwd * stretch * 3' },
+      ]},
+      { name:'oriel', tags:['head'], code:[
+        { context:'°', code:'flip cube normals<br>cull backfaces<br>stencil shader render contents' },
+      ]},
+      { name:'color-cube', tags:['eyes'], code:[
+        { context:'°', code:'color.rgb = (pos.x, pos.y, pos.z)<br>Render(outline)' },
+      ]},
+      { name:'orbital-view', tags:['head'], code:[
+        { context:'°', code:'oriel.pos = head.rot * fwd' },
+        { context:'immobile', code:'oriel.pos = head.rot * fwd<br>oriel.rot = rot.euler(0, head.euler.y * -4, 0)' },
+      ]},
+      { name:'fullstick', tags:['hands'], code:[
+        { context:'°', code:'rot = (stick.y * 90, 0, stick.x * 90)<br>dir = stick.pressed ? down : up<br>output = hand.rotation * rot * dir' },
+      ]},
+    ]
+    
+
+
+    var order = 0;
     $(document).ready(function () {
-      index = Math.floor(Math.random() * 2);
-      $('#ethan').css("order", "" + index);
+      order = Math.floor(Math.random() * 2)
+      $('#ethan').css("order", "" + order)
+      
+      dofs(0)
+      // // list by tag hands, head, eyes
+      // for (var i = 0; i < dofTree.length; i++) {
+      //   if (dofTree[i].tags.includes('hands')) {
+      //     console.log(dofTree[i].name)
+      //   }
+      // }
+      // console.log("")
+      // // list by context 1:1, 6:1
+      // for (var i = 0; i < dofTree.length; i++) {
+      //   for (var j = 0; j < dofTree[i].code.length; j++) {
+      //     if (dofTree[i].code[j].context == '6:1') {
+      //       console.log(dofTree[i].name)
+      //     }
+      //   }
+      // }
+      // console.log("")
+
 
       // decaTime();
       // setInterval(decaTime, 1000);
 
-      const time = document.lastModified;
-      $('#time').html("last updated: " + time)
-    });
+      // const time = document.lastModified;
+      // $('#time').html("last updated: " + time)
+    })
+
+    var tag = 'all'
+    function setTag(index) {
+      this.tag = tags[index]
+      dofs(-1)
+    }
+    
+    var lastIndex = 0
+    function dofs (index) {
+      console.log(tag)
+      if (index == lastIndex) {
+        index = lastIndex = -1
+      }
+      else {
+        lastIndex = index
+      }
+      // list oldest to latest
+      var html = '<div id="dofs">'
+      html += '<div style="display:flex; justify-content:space-between;">'
+      for (var i = 0; i < tags.length; i++) {
+        // color white on selected tag
+        var color = 'var(--light)'
+        if (tags[i] == tag) {
+          color = 'white'
+        }
+        html += '<div onclick="setTag('+i+')" style="color:'+color+'; cursor:pointer;">' + tags[i] + '</div>'
+      }
+      html += '</div><br>'
+      for (var i = 0; i < dofTree.length; i++) {
+        var dof = dofTree[i]
+        if (dof.tags.includes(tag) || tag == 'all') {
+          html += '<div class="dof">'
+          html += '<div class="name" onclick="dofs('+i+')">'+ dof.name +'</div>'
+          if (i == index) {
+            // switch link to div and render out the code
+            // html += '<img src="/res/dofs/'+ dof.name +'.gif" />'
+            html += '<div class="gif" style="background-image: url(/res/dofs/'+ dof.name +'.gif)"></div>'
+            for (var j = 0; j < dof.code.length; j++) {
+              html += '<div style="width: 100%;"><pre>['+ dof.code[j].context +']<br>'+ dof.code[j].code +'</pre></div>'
+            }
+            html += '<br>'
+          }
+          html += '</div>'
+        }
+      }
+      html += '</div>'
+      $('#dofs').html(html)
+    }
 
 
     // var decaTime = function () {
@@ -301,12 +324,12 @@ output = hand.rotation * rot * dir
       layout: "video",
       muted: false,
       autoplay: false
-    });
+    })
 
     embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
       var player = embed.getPlayer()
       player.play()
-    });
+    })
 
   </script>
 
