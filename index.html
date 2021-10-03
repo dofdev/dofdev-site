@@ -215,10 +215,14 @@
       ]},
       { name:'orbital-view', tags:['head'], code:[
         { context:'°', code:'oriel.pos = head.rot * fwd' },
-        { context:'immobile', code:'oriel.pos = head.rot * fwd<br>oriel.rot = rot.euler(0, head.euler.y * -4, 0)' },
+        { context:'*', code:'oriel.pos = head.rot * fwd<br>oriel.rot = rot.euler(0, head.euler.y * -4, 0)' },
       ]},
       { name:'fullstick', tags:['hands'], code:[
         { context:'°', code:'rot = (stick.y * 90, 0, stick.x * 90)<br>dir = stick.pressed ? down : up<br>output = hand.rotation * rot * dir' },
+      ]},
+      { name:'offset-cursor', tags:['hands'], code:[
+        { context:'°', code:'dragPos = mainHand.pos<br>if (mainHand.button.down)<br>  lastPos = dragPos<br><br>if (mainHand.button.held)<br>  cursor += (dragPos - lastPos) * 12<br><br>lastPos = dragPos' },
+        { context:'x orbital-view', code:'dragPos = mainHand.pos // * head.rot<br>newRot = orielRot * head.rot<br>if (mainHand.button.down)<br>  lastPos = dragPos<br><br>if (mainHand.button.held)<br>  cursor += newRot * ((dragPos - lastPos) * 12)<br>  cursor = newRot * rot.inverse(oldRot) * cursor<br><br>lastPos = dragPos<br>oldRot = newRot' },
       ]},
     ]
     
