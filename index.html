@@ -14,7 +14,7 @@
 
   <title>dofdev</title>
 
-  <link rel="stylesheet" href="/style.css?v26">
+  <link rel="stylesheet" href="/style.css?v27">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js?v1"></script>
@@ -265,7 +265,7 @@
       dofs(-1)
     }
     
-    var lastIndex = 0
+    var lastIndex = -1
     function dofs (index) {
       console.log(tag)
       if (index == lastIndex) {
@@ -275,8 +275,10 @@
         lastIndex = index
       }
       // list oldest to latest
-      var html = '<div id="dofs">'
+      var html = ''
+      // '<div id="dofs">'
       html += '<div style="display:flex; justify-content:space-between;">'
+      html += '<div></div>'
       for (var i = 0; i < tags.length; i++) {
         // color white on selected tag
         var color = 'var(--light)'
@@ -285,6 +287,7 @@
         }
         html += '<div onclick="setTag('+i+')" style="color:'+color+'; cursor:pointer;">' + tags[i] + '</div>'
       }
+      html += '<div></div>'
       html += '</div><br>'
       for (var i = 0; i < dofTree.length; i++) {
         var dof = dofTree[i]
@@ -303,7 +306,7 @@
           html += '</div>'
         }
       }
-      html += '</div>'
+      // html += '</div>'
       $('#dofs').html(html)
     }
 

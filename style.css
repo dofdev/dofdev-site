@@ -240,6 +240,7 @@ video {
   flex-flow: column;
   justify-content: space-between;
   margin: 0 auto;
+  width: 400px;
 }
 
 .dof {
@@ -256,6 +257,8 @@ video {
   margin: 0 auto;
   padding: 1em;
   cursor: pointer;
+  width: 100%;
+  text-align: center;
 }
 
 .dof .gif {
@@ -510,6 +513,9 @@ p a {
 @media only screen and (max-width: 500px) {
   #logo {
     width: 66%;
+  }
+  #dofs {
+    width: 100%;
   }
   .dof {
     width: 100%;
