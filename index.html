@@ -304,25 +304,6 @@
       this.tag = tags[index]
       dofs(-1)
     }
-
-    var viewHistory = false
-    function toggleHistory() {
-      viewHistory = !viewHistory
-  
-      l = lastIndex
-      dofs(-1)
-      dofs(l)
-    }
-
-    
-    var viewCode = false
-    function toggleCode() {
-      viewCode = !viewCode
-  
-      l = lastIndex
-      dofs(-1)
-      dofs(l)
-    }
     
     var lastIndex = -1
     function dofs (index) {
@@ -362,17 +343,13 @@
                 append = '-' + dof.code[j].context
               }
               html += '<img class="gif" title="'+ dof.name +'" src="/res/dofs/'+ dof.name + append +'.gif?v4" style="background-image: url(/res/dofs/loading.gif?v2)"/>'
-              html += '<div class="history" onclick="toggleCode()"style="cursor:pointer;text-align:center;background:black;color:var(--white);border-top:1px solid #333;">-- code --</div>'
-              if (viewCode) {
-                html += '<div style="width: 100%;"><pre>['+ dof.code[j].context +']<br>'+ dof.code[j].code +'</pre></div>'
-              }
+              html += '<div class="history" onclick="$(\'#'+dof.name+j+'\').toggle()"style="cursor:pointer;text-align:center;background:black;color:var(--white);border-top:1px solid #333;">-- code --</div>'
+              html += '<div id="'+dof.name+j+'" style="width: 100%; display:none;"><pre>['+ dof.code[j].context +']<br>'+ dof.code[j].code +'</pre></div>'
             }
             if (dof.history != null) {
-              html += '<div class="history" onclick="toggleHistory()" style="cursor:pointer;text-align:center;">-- history --</div>'
-              if (viewHistory) {
-                for (var k = 0; k < dof.history.length; k++) {
-                  html += '<div class="history">['+ dof.history[k].date +']<br>'+ dof.history[k].log +'</div>'
-                }
+              html += '<div class="history" onclick="$(\'#'+dof.name+'\').toggle()" style="cursor:pointer;text-align:center;">-- history --</div>'
+              for (var k = 0; k < dof.history.length; k++) {
+                html += '<div id="'+dof.name+'" class="history" style="display:none;">['+ dof.history[k].date +']<br>'+ dof.history[k].log +'</div>'
               }
             }
             html += '<br>'
