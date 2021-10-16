@@ -266,7 +266,7 @@ video {
   width: 100%;
   background-color: black;
   background-position: center;
-  background-size: cover;
+  background-size: 15%;
   border-top: 2px solid var(--white);
   /* image-rendering: pixelated; */
 }
