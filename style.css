@@ -267,15 +267,28 @@ video {
   background-color: black;
   background-position: center;
   background-size: cover;
-  border-top: 2px solid white;
+  border-top: 2px solid var(--white);
+  /* image-rendering: pixelated; */
 }
 
 .dof pre {
   /* width: 100%; */
   background-color: black;
-  color: white;
+  color: var(--white);
   padding: 0.5em;
   font-size: 0.75em;
+}
+
+.dof .history {
+  background-color: var(--white);
+  color: var(--black);
+  width: 100%; 
+  padding: 0.5em;
+  font-size: 0.75em;
+}
+
+.dof div {
+  box-sizing: border-box;
 }
 
 .art {
