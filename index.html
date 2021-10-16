@@ -14,7 +14,7 @@
 
   <title>dofdev</title>
 
-  <link rel="stylesheet" href="/style.css?v29">
+  <link rel="stylesheet" href="/style.css?v30">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js?v1"></script>
@@ -352,7 +352,7 @@
               if (j > 0) {
                 append = '-' + dof.code[j].context
               }
-              html += '<img class="gif" title="'+ dof.name +'" src="/res/dofs/'+ dof.name + append +'.gif?v3" alt="/res/dofs/loading.gif?v2"/>'
+              html += '<img class="gif" title="'+ dof.name +'" src="/res/dofs/'+ dof.name + append +'.gif?v4" style="background-image: url(/res/dofs/loading.gif?v2)"/>'
               html += '<div style="width: 100%;"><pre>['+ dof.code[j].context +']<br>'+ dof.code[j].code +'</pre></div>'
             }
             if (dof.history != null) {

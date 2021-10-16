@@ -262,7 +262,7 @@ video {
 }
 
 .dof .gif {
-  /* height: 12em; */
+  min-height: 12em;
   width: 100%;
   background-color: black;
   background-position: center;
