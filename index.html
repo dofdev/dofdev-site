@@ -32,7 +32,7 @@
     <img src="res/the-problem.png?v4">
 
     <p style="text-align: right">
-      *An effort to open new degrees of
+      An effort to open new degrees of
       <br>spatial interaction free
       <br>to the world.
     </p>
@@ -250,10 +250,18 @@
       ]},
       { name:'parabolizer', tags:['hands'], 
         code:[
-          { context:'°', code:'a = offHand.pos<br>b = stretch-cursor (stretch = radius of rayhit)<br>c = backhanded stretch-cursor<br>pos = lerp(lerp(a, b, t), lerp(b, c, t), t)' },
+          { context:'°', code:'a = offHand.pos<br>hit = raycast(offHand.fwd, midPlane)<br>dist = distance(hit, midPlane)<br>b = mainHand.pos + mainHand.rot * fwd * dist<br>c = backhanded stretch-cursor<br>pos = lerp(lerp(a, b, t), lerp(b, c, t), t)' },
         ], 
         history:[
           { date:'Oct 2021', log:'Late 2020 I imagined that I wanted to control a spatial parabola with my 2 hands. At first I struggled trying to make a parabola because I was thinking with only 2 points. About a year later with the creation of the back handed stretch cursor I realized I could utilize a third point by combining the original stretch cursor with this new one.<br>-Niko Ryan' },
+        ]
+      },
+      { name:'twist-cursor', tags:['hands'], 
+        code:[
+          { context:'°', code:'rel = LookRotation(mainHand.rot * forward)<br>twist = Angle(rel * up, hand.rot * up) / 180<br>cursor = hand.pos + hand.rot * forward * twist' },
+        ], 
+        history:[
+          { date:'Oct 2021', log:'init' },
         ]
       },
     ]
@@ -344,7 +352,7 @@
               if (j > 0) {
                 append = '-' + dof.code[j].context
               }
-              html += '<div class="gif" title="'+ dof.name +'" style="background-image: url(/res/dofs/'+ dof.name + append +'.gif?v1)"></div>'
+              html += '<img class="gif" title="'+ dof.name +'" src="/res/dofs/'+ dof.name + append +'.gif?v1" alt=""/>'
               html += '<div style="width: 100%;"><pre>['+ dof.code[j].context +']<br>'+ dof.code[j].code +'</pre></div>'
             }
             if (dof.history != null) {
