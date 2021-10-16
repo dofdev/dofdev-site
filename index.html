@@ -344,7 +344,7 @@
               if (j > 0) {
                 append = '-' + dof.code[j].context
               }
-              html += '<div class="gif" style="background-image: url(/res/dofs/'+ dof.name + append +'.gif)"></div>'
+              html += '<div class="gif" title="'+ dof.name +'" style="background-image: url(/res/dofs/'+ dof.name + append +'.gif?v1)"></div>'
               html += '<div style="width: 100%;"><pre>['+ dof.code[j].context +']<br>'+ dof.code[j].code +'</pre></div>'
             }
             if (dof.history != null) {
