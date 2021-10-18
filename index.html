@@ -230,10 +230,17 @@
       },
       { name:'twist-cursor', tags:['hands'], 
         code:[
-          { context:'°', code:'rel = LookRotation(mainHand.rot * forward)<br>twist = Angle(rel * up, hand.rot * up) / 180<br>cursor = hand.pos + hand.rot * forward * twist' },
+          { context:'°', code:'rel = LookRotation(mainHand.rot * forward)<br>twist = Angle(rel * up, hand.rot * up) / 180<br>twist = Max(twist - 0.05, 0)<br>cursor = hand.pos + hand.rot * forward * twist' },
         ], 
         history:[
           { date:'Oct 2021', log:'init' },
+        ]
+      },
+      { name:'cubic-flow', tags:['hands'],
+        code:[
+          { context:'°', code:'// 4 independent spatial cursors<br>p0 = leftHand.pos<br>p1 = leftTwistCursor.pos<br>p2 = rightTwistCursor.pos<br>p3 = rightHand.pos<br><br>if toggle<br>  if !leftTwistCursor.outty<br>    pp = p0<br>    p0 = p1<br>    p1 = pp<br>  if rightTwistCursor.outty<br>    pp = p2<br>    p2 = p3<br>    p3 = pp<br><br>pastPos = p0<br>for i = 0, i < 64, i++<br>  t = i / 63.0f<br>  a = Lerp(p0, p1, t)<br>  b = Lerp(p1, p2, t)<br>  c = Lerp(p2, p3, t)<br>  pos = Lerp(Lerp(a, b, t), Lerp(b, c, t), t)<br>  Draw.Line(pastPos, pos, color)<br>  pastPos = pos' }
+        ],
+        history:[  
         ]
       },
     ]
