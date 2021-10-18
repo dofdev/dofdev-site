@@ -14,7 +14,7 @@
 
   <title>dofdev</title>
 
-  <link rel="stylesheet" href="/style.css?v32">
+  <link rel="stylesheet" href="/style.css?v33">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js?v1"></script>
@@ -32,8 +32,8 @@
     <img src="res/the-problem.png?v4">
 
     <p style="text-align: right">
-      An effort to open new degrees<br>
-      of spatial interaction free<br>
+      An effort to open new degrees of<br>
+      spatial interaction free<br>
       to the world.
     </p>
     <img src="res/square-logo.png" id="logo">
@@ -72,64 +72,19 @@
     </div>
   </div>
 
-  <div class="btn-cluster" style="display:none">
-
-    <a href="/art" class="btn">
-      <svg width="24" height="24"
-        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(255, 0, 0, 0.5); stroke: rgb(182, 0, 0);">
-        <polygon points="0,08 06,02 12,08 18,02 24,08 12,22" />
-      </svg>
-      <div>art</div>
-    </a>
-
-    <a href="https://discord.gg/65jZCW9" class="btn">
-      <svg width="24" height="24"
-        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(78, 94, 240, 0.5); stroke: rgb(0, 0, 182)">
-        <polygon points="02,04 22,04 22,20 08,20 02,24" />
-      </svg>
-      <div>discord</div>
-    </a>
-
-    <a href="mailto:contact@dofdev.org" class="btn">
-      <svg width="24" height="24"
-        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(40, 255, 68, 0.5); stroke: rgb(0, 182, 0)">
-        <polygon points="06,00 12,12 06,24 00,12" />
-        <polygon points="18,00 21,05 18,10 15,05" />
-      </svg>
-      <div>consult</div>
-    </a>
-
-    <a href="https://patreon.com/dofdev" class="btn">
-      <svg width="24" height="24"
-        style="padding: 0.5em 0em; padding-right: 1em; stroke-width:0.25px; fill: rgba(249, 103, 84, 0.74); stroke: rgb(184, 76, 62)">
-        <polygon points="01,02 05,02 05,22 01,22" />
-        <circle cx="16" cy="10" r="8" />
-      </svg>
-      <div>patreon</div>
-    </a>
-
-  </div>
-
-
-  <br>
   <br>
 
-  <h1>projects</h1>
-  <div style="text-align: center;">[ FREE grayscaled versions ]</div>
-  <div id="gallery">
-    <a class="cover" href="https://dofdev.itch.io/vien" title="Vien"
-      style="background-image: url(res/covers/vien.png?v2);">
-      <div>vien | $6</div>
-    </a>
-    <a class="cover" href="/snakeinabox" title="Snake in a Box"
-      style="background-image: url(res/covers/snakeinabox.png?v3)">
-      <div>snake in a box | $3</div>
-    </a>
-    <a class="cover" href="/salishkeyboard" title="Salish Keyboard"
-      style="background-image: url(res/covers/salishkeyboard.png)">
-      <div>salish keyboard</div>
-    </a>
+  <div style="display:flex; justify-content: center; align-items: center;">
+    <img width="38px" height="38px" src="res/eth-wallet.jpg" style="image-rendering: pixelated; padding: 0 0.5em;">
+    <div style="color: white; font-size: var(--normal-font);">Ethereum Wallet</div>
   </div>
+  <div style="text-align: center; line-height: 150%;">
+    <div style="font-size: var(--small-font);">[fund our access to time and resources]</div>
+    <div style="font-size: var(--small-font);" onclick="copyThat(this)">0x0978dd8Dc963F79d21FA9DB15b20A7CB111F846F</div>
+    <div style="font-size: var(--small-font); color: var(--dark)">^ click to copy ^</div>
+  </div>
+
+  <br><br>
 
   <h1>dofs</h1>
   <p id="footer" style="margin: 0;">
@@ -188,6 +143,23 @@
   <br>
   <div class="vid" id="twitch-embed"></div>
   <br>
+
+  <h1>projects</h1>
+  <div style="text-align: center;">[ FREE grayscaled versions ]</div>
+  <div id="gallery">
+    <a class="cover" href="https://dofdev.itch.io/vien" title="Vien"
+      style="background-image: url(res/covers/vien.png?v2);">
+      <div>vien | $6</div>
+    </a>
+    <a class="cover" href="/snakeinabox" title="Snake in a Box"
+      style="background-image: url(res/covers/snakeinabox.png?v3)">
+      <div>snake in a box | $3</div>
+    </a>
+    <a class="cover" href="/salishkeyboard" title="Salish Keyboard"
+      style="background-image: url(res/covers/salishkeyboard.png)">
+      <div>salish keyboard</div>
+    </a>
+  </div>
 
   <!-- 
   <div class="strip">
@@ -373,6 +345,11 @@
     //     + "</span>"
     //   );
     // };
+
+    function copyThat(el) {
+      // console.log($(el).html())
+      navigator.clipboard.writeText($(el).html());
+    }
 
     var embed = new Twitch.Embed("twitch-embed", {
       width: 854,
