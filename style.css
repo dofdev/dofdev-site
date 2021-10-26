@@ -15,6 +15,7 @@
 
 body {
   margin: 0 auto;
+  margin-top: 4em;
   background-color: var(--gray);
   max-width: var(--device-width);
   font-family: 'DM Mono', monospace;
@@ -56,6 +57,12 @@ p, ul li {
   padding: 0;
   margin: 0 1em;
   padding-bottom: 2em;
+}
+
+.l {
+  font-size: var(--small-font);
+  padding: 0.2em;
+  color: var(--light);
 }
 
 ul li {
@@ -268,6 +275,7 @@ video {
   background-position: center;
   background-size: 15%;
   border-top: 2px solid var(--white);
+  display: block;
   /* image-rendering: pixelated; */
 }
 
@@ -289,6 +297,41 @@ video {
 
 .dof div {
   box-sizing: border-box;
+}
+
+.psuedo {
+  /* background-color: black; */
+  color: var(--white);
+  font-size: var(--small-font);
+  padding: 1em;
+  overflow-x: scroll;
+  box-shadow: inset 0px 0px 8px #0000003b;
+}
+
+.comment {
+  color: var(--dark);
+  font-weight: 600;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: none; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--light); 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: var(--white); 
 }
 
 .art {
@@ -315,13 +358,20 @@ video {
 }
 
 #nav {
-  margin: 1em;
   z-index: 100;
   display: flex;
   justify-content: space-between;
-  padding: 0;
   user-select: none;
   cursor: pointer;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  max-width: var(--device-width);
+  margin: 0 auto;
+  padding: 1em;
+  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  background: rgb(128 128 128 / 75%);
 }
 
 #nav a {
@@ -388,7 +438,8 @@ video {
   margin-bottom: 1em;
   width: 49%;
   height: 128px;
-  border: 1px solid rgb(148, 148, 148);
+  /* border: 1px solid rgb(148, 148, 148); */
+  box-shadow: inset 0px 0px 8px #0000003b;
 }
 
 .profile-pic {
@@ -467,24 +518,10 @@ video {
 }
 
 #fdeg {
-  /* height: 6em; */
   margin: 1em auto;
   font-family: "Nanum Myeongjo", serif;
   text-align: center;
-  font-size: 6em;
-  /* background: linear-gradient(white, red, yellow, green, cyan, blue, magenta, white); */
-  background: url("200_s.gif");
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* background-size: 100% 30%; */
-  background-size: contain;
-  /* animation-name: shimmer;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  background-repeat: no-repeat;
-  background-position: 0 0;
-  background-color: white; */
+  font-size: 2em;
 }
 
 @keyframes shimmer {

@@ -1,0 +1,26 @@
+<pre class="psuedo">
+<b>stretch</b> = dist(offHand, mainHand)
+max(<b>stretch</b> - deadzone, 0)
+dir = mainHand.fwd
+cursor = mainHand.pos + dir * <b>stretch</b> * 3
+
+<span class="comment">// backhanded</span>
+delta = mainHand.pos - offHand.pos
+dir = delta.normalized
+<b>stretch</b> = delta.magnitude
+max(<b>stretch</b> - deadzone, 0)
+cursor = mainHand.pos + dir * <b>stretch</b> * 3
+</pre>
+
+<div id="fdeg">&conint;</div>
+
+<h1>// show don't tell</h1>
+<p>
+  "Late 2018 while working on a vr rendition of missile command we went from using the hand as a cursor, to extending it out with the joystick. While brainstorming different scalars one morning I considered using the distance between the two controllers."
+  <br>
+  -Ethan Merchant
+</p>
+
+<img src="stretch-cursor-backhanded.gif" />
+
+<video src="" />

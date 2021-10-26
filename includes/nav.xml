@@ -31,7 +31,7 @@
 
   <a href="mailto:contact@dofdev.org" target="_blank">
     <svg width="24" height="24">
-      <polygon points="24,10 10,10 10,22 20,22 24,24" style="fill:var(--dark)"/>
+      <polygon points="24,10 10,10 10,22 20,22 24,24" style="fill:rgb(0 0 0 / 25%);"/>
       <polygon points="00,04 20,04 20,18 06,18 00,23" />
     </svg>
   </a>

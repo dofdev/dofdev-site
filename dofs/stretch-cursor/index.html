@@ -1,0 +1,26 @@
+<head><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='/style.css?v90'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='/in-view.min.js'></script><script src='/includes/includer.js?v90'></script></head><body><div id='navElement'></div><img src='stretch-cursor.gif' /><div style='display: flex; justify-content: space-between; background: black;'><div class='l'>2018.10.07</div><div class='l'>2021.10.26</div></div><div style='display: flex; height: 2px;'><div style='background: green; flex-grow: 0.9999598767345593'></div><div style='background: yellow; flex-grow: 0.01'></div><div style='background: red; flex-grow: 4.012326544067246E-05'></div></div><div style='display: flex;'><div class='l' style='flex-grow: 0.9999598767345593;'></div><div class='l'>2021.10.26</div></div><h2 style='color: var(--white);text-decoration: none;'>°stretch-cursor</h2><pre class="psuedo">
+<b>stretch</b> = dist(offHand, mainHand)
+max(<b>stretch</b> - deadzone, 0)
+dir = mainHand.fwd
+cursor = mainHand.pos + dir * <b>stretch</b> * 3
+
+<span class="comment">// backhanded</span>
+delta = mainHand.pos - offHand.pos
+dir = delta.normalized
+<b>stretch</b> = delta.magnitude
+max(<b>stretch</b> - deadzone, 0)
+cursor = mainHand.pos + dir * <b>stretch</b> * 3
+</pre>
+
+<div id="fdeg">&conint;</div>
+
+<h1>// show don't tell</h1>
+<p>
+  "Late 2018 while working on a vr rendition of missile command we went from using the hand as a cursor, to extending it out with the joystick. While brainstorming different scalars one morning I considered using the distance between the two controllers."
+  <br>
+  -Ethan Merchant
+</p>
+
+<img src="stretch-cursor-backhanded.gif" />
+
+<video src="" /></body>

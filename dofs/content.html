@@ -1,0 +1,45 @@
+<h1>dofs</h1>
+<p id="footer" style="margin: 0;">
+  copyright &copy; 2018-2021 dofdev
+  <br>
+  This is free software: you can redistribute it and/or modify
+  it under the terms of the GNU General Public License as published by
+  the Free Software Foundation.
+  <br>
+  <a href="https://www.gnu.org/licenses/gpl-3.0.en.html">GPL-3.0-only</a>
+</p>
+<div id="dofs"></div>
+
+<script>
+  $(document).ready(function () {  
+    var i = localStorage.getItem('dofs')
+    dofs(i)
+    // dofTree.length - 1
+  })
+  
+  var lastIndex = -1
+  function dofs (index) {
+    if (index == lastIndex) {
+      index = lastIndex = -1
+    }
+    else {
+      lastIndex = index
+      // save the current index
+      localStorage.setItem('dofs', index)
+    }
+
+    var html = ''      
+    for (var i = 0; i < dofTree.length; i++) {
+      var dof = dofTree[i]
+      html += '<div class="dof">'
+      html += '<div class="name" onclick="dofs('+i+')">'+ dof +'</div>'
+      if (i == index) {
+        html += '<a href="/dofs/'+ dof +'">'
+        html += '<img class="gif" title="'+ dof +'" src="/dofs/'+ dof +'/'+ dof +'.gif?v4" style="background-image: url(/res/dofs/loading.gif?v2)"/>'
+        html += '</a>'
+      }
+      html += '</div>'
+    }
+    $('#dofs').html(html)
+  }
+</script>
