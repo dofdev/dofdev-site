@@ -276,9 +276,28 @@ video {
   background-color: black;
   background-position: center;
   background-size: 15%;
-  border-top: 2px solid var(--white);
+  /* border-top: 2px solid var(--white); */
   display: block;
   /* image-rendering: pixelated; */
+}
+
+.clickme {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  border: 1px solid #00000000;
+  animation: pulse 6s infinite;
+  /* animation-direction: alternate; */
+  animation-timing-function: linear;
+}
+
+@keyframes pulse {
+  0% { border-color: #00000000; left: 0px; right: 0px; bottom: 0px; top: 0px; }
+  10% { border-color: rgba(255, 255, 255, 1.0); left: 0px; right: 0px; bottom: 0px; top: 0px; }
+  15% { border-color: rgba(255, 255, 255, 0.25); left: 14px; right: 14px; bottom: 14px; top: 14px; }
+  25% { border-color: #00000000; left: 28px; right: 28px; bottom: 28px; top: 28px; }
 }
 
 .dof pre {
