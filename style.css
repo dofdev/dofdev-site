@@ -460,7 +460,7 @@ video {
   align-items: center;
   transition: 0.3s;
   /* box-shadow: 0px 2px rgba(0, 0, 0, 0.15); */
-  margin-bottom: 1em;
+  margin-bottom: 0.2em;
   width: 49%;
   height: 128px;
   /* border: 1px solid rgb(148, 148, 148); */
@@ -571,6 +571,10 @@ p a {
   text-indent: 22em;
 } */
 
+.statement {
+  text-align: right;
+}
+
 .noSelect {
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
@@ -611,4 +615,7 @@ p a {
   /* #mission {
     height: 100vh;
   } */
+  .statement {
+    font-size: 4vw;
+  }
 }
