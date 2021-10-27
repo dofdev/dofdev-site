@@ -9,7 +9,7 @@ $(document).ready(function () {
 
   // if exists
   if ($("#dofElement") != null) {
-    $("head").append("<script src='/dofs/dofs.js?v1'></script>")
+    $("head").append("<script src='/dofs/dofs.js?v3'></script>")
     $("#dofElement").load("/dofs/content.html?v3")
   }
     
