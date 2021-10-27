@@ -397,6 +397,7 @@ video {
 }
 
 #nav a {
+  display: block;
   margin: auto 0;
   padding: 1em;
   font-weight: bold;
@@ -404,6 +405,7 @@ video {
 }
 
 #nav svg {
+  display: block;
   fill: var(--light);
   stroke: var(--light);
   stroke-width: 0;

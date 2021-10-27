@@ -73,14 +73,11 @@ namespace DOFS
         // Console.WriteLine($"t: {t.ToString("0.000")}");
 
         string html = "<head>";
-
-        int v = int.Parse(File.ReadAllText("version.txt")) + 1; // increment
-        File.WriteAllText("version.txt", v.ToString());
         html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
-        html += $"<link rel='stylesheet' href='/style.css?v{v}'>";
+        html += $"<link rel='stylesheet' href='/style.css?v1'>";
         html += "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>";
         html += "<script src='/in-view.min.js'></script>";
-        html += $"<script src='/includes/includer.js?v{v}'></script>";
+        html += $"<script src='/includes/includer.js?v1'></script>";
         html += "</head>";
         html += "<body>";
         html += "<div id='navElement'></div>";
@@ -119,11 +116,31 @@ namespace DOFS
 
       File.WriteAllText("dofs.js", dofsJS);
 
+      CacheBust();
+      void CacheBust()
+      {
+        // go through all html files in project and update version number '?v1'
+        int v = int.Parse(File.ReadAllText("version.txt")) + 1;
+        int initV = v;
+        if (v > 100) { v = 1; }
+        File.WriteAllText("version.txt", v.ToString());
 
-      // go through all html files in project and update version number '?v1'
 
-      // string txt = File.ReadAllText("index.html");
-      // txt = 
+        string[] files = Directory.GetFiles("C:/dofdev/Web Development/dofdev/", "*.html", SearchOption.AllDirectories);
+        Console.WriteLine($"{files.Length} files cache busted!");
+        for (int i = 0; i < files.Length; i++)
+        {
+          string file = files[i];
+          string txt = File.ReadAllText(file);
+          for (int j = 0; j < initV; j++)
+          {
+            txt = txt.Replace($"?v{j}", "?v0");
+          }
+
+          txt = txt.Replace("?v0", $"?v{v}");
+          File.WriteAllText(file, txt);  
+        }
+      }
     }
   }
 }
