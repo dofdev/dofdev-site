@@ -1,0 +1,26 @@
+<head><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='/style.css?v197'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='/in-view.min.js'></script><script src='/includes/includer.js?v197'></script></head><body><div id='navElement'></div><img src='offset-cursor.gif' /><div style='display: flex; justify-content: space-between; background: black;'><div class='l'>2019.10.28</div><div class='l'>2021.10.26</div></div><div style='display: flex; height: 2px;'><div style='background: green; flex-grow: 0.9999622985173221'></div><div style='background: yellow; flex-grow: 0.01'></div><div style='background: red; flex-grow: 3.7701482677898746E-05'></div></div><div style='display: flex;'><div class='l' style='flex-grow: 0.9999622985173221;'></div><div class='l'>2021.10.26</div></div><h2 style='color: var(--white);text-decoration: none;'>°offset-cursor</h2><pre class='psuedo'>
+dragPos = mainHand.pos
+if (mainHand.button.down)
+  lastPos = dragPos
+  
+if (mainHand.button.held)
+  cursor += (dragPos - lastPos) * 12
+  
+lastPos = dragPos
+
+<span class='comment'>// x orbital-view</span>
+dragPos = mainHand.pos // * head.rot
+newRot = orielRot * head.rot
+
+if (mainHand.button.down)
+  lastPos = dragPos
+
+if (mainHand.button.held)
+  cursor += newRot * ((dragPos - lastPos) * 12)
+  cursor = newRot * rot.inverse(oldRot) * cursor
+
+lastPos = dragPos
+oldRot = newRot
+</pre>
+
+<div id='fdeg'>&conint;</div></body>

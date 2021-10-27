@@ -1,0 +1,10 @@
+<head><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='/style.css?v201'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='/in-view.min.js'></script><script src='/includes/includer.js?v201'></script></head><body><div id='navElement'></div><img src='twist-cursor.gif' /><div style='display: flex; justify-content: space-between; background: black;'><div class='l'>2021.10.15</div><div class='l'>2021.10.26</div></div><div style='display: flex; height: 2px;'><div style='background: green; flex-grow: 0.9998881015092481'></div><div style='background: yellow; flex-grow: 0.01'></div><div style='background: red; flex-grow: 0.00011189849075188274'></div></div><div style='display: flex;'><div class='l' style='flex-grow: 0.9998881015092481;'></div><div class='l'>2021.10.26</div></div><h2 style='color: var(--white);text-decoration: none;'>°twist-cursor</h2><pre class='psuedo'>
+rel = LookRotation(mainHand.rot * forward)
+twist = Angle(rel * up, hand.rot * up) / 180
+twist = Max(twist - 0.05, 0)
+cursor = hand.pos + hand.rot * forward * twist
+</pre>
+
+<div id='fdeg'>&conint;</div>
+
+</body>

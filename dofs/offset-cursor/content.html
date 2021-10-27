@@ -1,0 +1,26 @@
+<pre class='psuedo'>
+dragPos = mainHand.pos
+if (mainHand.button.down)
+  lastPos = dragPos
+  
+if (mainHand.button.held)
+  cursor += (dragPos - lastPos) * 12
+  
+lastPos = dragPos
+
+<span class='comment'>// x orbital-view</span>
+dragPos = mainHand.pos // * head.rot
+newRot = orielRot * head.rot
+
+if (mainHand.button.down)
+  lastPos = dragPos
+
+if (mainHand.button.held)
+  cursor += newRot * ((dragPos - lastPos) * 12)
+  cursor = newRot * rot.inverse(oldRot) * cursor
+
+lastPos = dragPos
+oldRot = newRot
+</pre>
+
+<div id='fdeg'>&conint;</div>

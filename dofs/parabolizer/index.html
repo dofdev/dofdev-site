@@ -1,0 +1,15 @@
+<head><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='/style.css?v200'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='/in-view.min.js'></script><script src='/includes/includer.js?v200'></script></head><body><div id='navElement'></div><img src='parabolizer.gif' /><div style='display: flex; justify-content: space-between; background: black;'><div class='l'>2021.10.15</div><div class='l'>2021.10.26</div></div><div style='display: flex; height: 2px;'><div style='background: green; flex-grow: 0.9996031561698184'></div><div style='background: yellow; flex-grow: 0.01'></div><div style='background: red; flex-grow: 0.0003968438301815702'></div></div><div style='display: flex;'><div class='l' style='flex-grow: 0.9996031561698184;'></div><div class='l'>2021.10.26</div></div><h2 style='color: var(--white);text-decoration: none;'>°parabolizer</h2><pre class='psuedo'>
+a = offHand.pos
+hit = raycast(offHand.fwd, midPlane)
+dist = distance(hit, midPlane)
+b = mainHand.pos + mainHand.rot * fwd * dist
+c = backhanded stretch-cursor
+pos = lerp(lerp(a, b, t), lerp(b, c, t), t)
+</pre>
+
+<div id='fdeg'>&conint;</div>
+
+<p>
+  Late 2020 I imagined that I wanted to control a spatial parabola with my 2 hands. At first I struggled trying to make a parabola because I was thinking with only 2 points. About a year later with the creation of the back handed stretch cursor I realized I could utilize a third point by combining the original stretch cursor with this new one.
+  <br> -Niko Ryan
+</p></body>

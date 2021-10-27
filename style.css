@@ -153,6 +153,8 @@ form li+li {
 }
 
 img {
+  margin: 0 auto;
+  display: block;
   max-width: 100%;
 }
 
@@ -370,7 +372,8 @@ video {
   max-width: var(--device-width);
   margin: 0 auto;
   padding: 1em;
-  box-shadow: 0 4px 4px rgb(0 0 0 / 25%);
+  /* box-shadow: 0 4px 4px rgb(0 0 0 / 25%); */
+  border-bottom: 1px solid rgb(0 0 0 / 12.5%);
   background: rgb(128 128 128 / 75%);
 }
 

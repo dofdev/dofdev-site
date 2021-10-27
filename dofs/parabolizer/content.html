@@ -1,0 +1,15 @@
+<pre class='psuedo'>
+a = offHand.pos
+hit = raycast(offHand.fwd, midPlane)
+dist = distance(hit, midPlane)
+b = mainHand.pos + mainHand.rot * fwd * dist
+c = backhanded stretch-cursor
+pos = lerp(lerp(a, b, t), lerp(b, c, t), t)
+</pre>
+
+<div id='fdeg'>&conint;</div>
+
+<p>
+  Late 2020 I imagined that I wanted to control a spatial parabola with my 2 hands. At first I struggled trying to make a parabola because I was thinking with only 2 points. About a year later with the creation of the back handed stretch cursor I realized I could utilize a third point by combining the original stretch cursor with this new one.
+  <br> -Niko Ryan
+</p>

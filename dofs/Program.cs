@@ -35,6 +35,13 @@ namespace DOFS
         new DOF(new DateTime(2018, 10, 07), "stretch-cursor"),
         new DOF(new DateTime(2019, 03, 14), "oriel"),
         new DOF(new DateTime(2019, 05, 31), "color-cube"),
+        new DOF(new DateTime(2019, 10, 17), "orbital-view"),
+        new DOF(new DateTime(2019, 10, 28), "offset-cursor"),
+        new DOF(new DateTime(2019, 11, 03), "fullstick"),
+        new DOF(new DateTime(2020, 04, 21), "trackballer"),
+        new DOF(new DateTime(2021, 10, 15), "parabolizer"),
+        new DOF(new DateTime(2021, 10, 15), "twist-cursor"),
+        new DOF(new DateTime(2021, 10, 18), "cubic-flow"),
       };
       // Console.WriteLine(dofs[0].ToString());
 
@@ -47,7 +54,12 @@ namespace DOFS
         if (!File.Exists($"{dof.name}/")) { Directory.CreateDirectory(dof.name); }
 
         string pathContent = $"{dof.name}/content.html";
-        if (!File.Exists(pathContent)) { File.WriteAllText(pathContent, "<h1>void</h1>"); }
+        if (!File.Exists(pathContent))
+        {
+          string htmlContent = "<pre class='psuedo'><span class='comment'></span></pre>";
+          htmlContent += "<div id='fdeg'>&conint;</div>";
+          File.WriteAllText(pathContent, htmlContent);
+        }
         string content = File.ReadAllText(pathContent);
 
         DateTime lastUpdated = File.GetLastWriteTime(pathContent);
@@ -105,6 +117,12 @@ namespace DOFS
       dofsJS += "];";
 
       File.WriteAllText("dofs.js", dofsJS);
+
+
+      // go through all html files in project and update version number '?v1'
+
+      // string txt = File.ReadAllText("index.html");
+      // txt = 
     }
   }
 }

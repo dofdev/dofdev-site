@@ -1,0 +1,31 @@
+<head><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='/style.css?v199'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='/in-view.min.js'></script><script src='/includes/includer.js?v199'></script></head><body><div id='navElement'></div><img src='trackballer.gif' /><div style='display: flex; justify-content: space-between; background: black;'><div class='l'>2020.04.21</div><div class='l'>2021.10.26</div></div><div style='display: flex; height: 2px;'><div style='background: green; flex-grow: 0.9999999160273619'></div><div style='background: yellow; flex-grow: 0.01'></div><div style='background: red; flex-grow: 8.397263806525501E-08'></div></div><div style='display: flex;'><div class='l' style='flex-grow: 0.9999999160273619;'></div><div class='l'>2021.10.26</div></div><h2 style='color: var(--white);text-decoration: none;'>°trackballer</h2><pre class='psuedo'>
+newRot = hand.rot * heldRot * spinRot
+if (offCon.triggerBtn.held && held != null)
+  newDelta = Inverse(newRot) * offHand.rotDelta
+  newDelta *= newRot
+  spinDelta = Slerp(
+    spinDelta,
+    newDelta,
+    Time.deltaTime / 0.1f
+  )
+  
+spinRot *= spinDelta
+
+<span class='comment'>// lower the speed the higher the friction</span>
+friction = 1 - Clamp01(
+  Angular(spinDelta).magnitude / deltaTime / 15
+)
+friction = friction * friction * friction;
+spinDelta = Slerp(
+  Quaternion.identity,
+  spinDelta,
+  1 - (friction * Time.deltaTime)
+)
+heldRotDelta = newRot * Inverse(oldRot)
+
+held.rot = hand.rot * heldRot * spinRot
+<span class='comment'>// or</span>
+held.angularVel = Angular(heldRotDelta) / deltaTime
+</pre>
+
+<div id='fdeg'>&conint;</div></body>
