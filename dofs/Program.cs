@@ -116,7 +116,13 @@ namespace DOFS
 
       File.WriteAllText("dofs.js", dofsJS);
 
-      CacheBust();
+      // ask to bust
+      Console.Write("Bust cache? (y/n): ");
+      string bust = Console.ReadLine();
+      if (bust == "y")
+      {
+        CacheBust();
+      }
       void CacheBust()
       {
         // go through all html files in project and update version number '?v1'
@@ -132,7 +138,7 @@ namespace DOFS
         {
           string file = files[i];
           string txt = File.ReadAllText(file);
-          for (int j = 0; j < initV; j++)
+          for (int j = initV + 100; j > 0; j--)
           {
             txt = txt.Replace($"?v{j}", "?v0");
           }
