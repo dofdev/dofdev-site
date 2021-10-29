@@ -18,7 +18,7 @@ cursor = phone.pos + phone.up * offset * 3
 <span class='comment'>touch-stretch-cursor</span>
 stretch = dist(touch[0], touch[1])
 dir = calibration
-origin = phone.pos + phone.rot * touch.xy
+origin = phone.pos + phone.rot * touch[0].xy
 cursor = origin + phone.rot * dir * stretch * 3
 
 <span class='comment'>tilt-touch</span>
