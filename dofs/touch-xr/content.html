@@ -1,0 +1,44 @@
+<pre class='psuedo'>
+<span class='comment'>gyro-keyboard</span>
+keyLayers[3]
+tilt = device.rotation.y
+index = int(tilt * 10)
+layer = keyLayers[index]
+
+if tap
+  layer.sample(touch.pos)
+
+<span class='comment'>swipe-cursor</span>
+if absolute
+  offset = touch.y
+
+offset += touch.delta.y
+cursor = phone.pos + phone.up * offset * 3
+
+<span class='comment'>touch-stretch-cursor</span>
+stretch = dist(touch[0], touch[1])
+dir = calibration
+cursor = phone.pos + phone.rot * dir * stretch * 3
+
+<span class='comment'>tilt-touch</span>
+touch.xyz = phone.rot * touch.xy
+
+</pre>
+
+<div id='fdeg'>&conint;</div>
+
+<img src='swipe-cursor.gif' alt='swipe-cursor' />
+<h1>swipe-cursor</h1>
+<p>extend cursor out of phone with swipe</p>
+
+<img src='touch-stretch-cursor.gif' alt='touch-stretch-cursor' />
+<h1>touch-stretch-cursor</h1>
+<p>using the distance between your thumbs extend a cursor out</p>
+
+<img src='tilt-touch.gif' alt='tilt-touch' />
+<h1>tilt-touch</h1>
+<p>tilt your phone to move the touch points in 3d space</p>
+
+<img src='gyro-keyboard.gif' alt='gyro-keyboard' />
+<h1>gyro-keyboard</h1>
+<p>tilt through the layers as you type, reducing travel and mistaps</p>

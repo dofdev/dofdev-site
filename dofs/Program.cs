@@ -42,6 +42,8 @@ namespace DOFS
         new DOF(new DateTime(2021, 10, 15), "parabolizer"),
         new DOF(new DateTime(2021, 10, 15), "twist-cursor"),
         new DOF(new DateTime(2021, 10, 18), "cubic-flow"),
+        new DOF(new DateTime(2021, 10, 29), "reach-cursor"),
+        new DOF(new DateTime(2021, 10, 29), "touch-xr"),
       };
       // Console.WriteLine(dofs[0].ToString());
 
@@ -101,6 +103,7 @@ namespace DOFS
         html += "<a href='https://www.gnu.org/licenses/gpl-3.0.en.html'><div style='padding-bottom: 1em; font-size: var(--small-font); text-align: center; text-decoration: underline;'>GPL-3.0-only</div></a>";
         html += $"{content}";
         html += $"";
+        html += "<div id='footerElement'></div>";
         html += "</body>";
 
         string path = $"{dof.name}/index.html";

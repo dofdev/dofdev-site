@@ -1,1 +1,1 @@
-const dofTree = ['stretch-cursor','oriel','color-cube','orbital-view','offset-cursor','fullstick','trackballer','parabolizer','twist-cursor','cubic-flow',];
+const dofTree = ['stretch-cursor','oriel','color-cube','orbital-view','offset-cursor','fullstick','trackballer','parabolizer','twist-cursor','cubic-flow','reach-cursor','touch-xr',];
