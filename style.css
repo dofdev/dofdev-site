@@ -218,6 +218,22 @@ video {
   margin: 2em 0 4em 0;
 }
 
+.gif {
+  min-height: 12em;
+  width: 100%;
+  background-color: black;
+  background-position: center;
+  background-size: 15%;
+  /* border-top: 2px solid var(--white); */
+  display: block;
+  /* image-rendering: pixelated; */
+  background-image: url(/res/dofs/loading.gif?v7);
+}
+
+.cover, .gif {
+  background-size: cover;
+}
+
 .cover {
   background-position: center;
   background-size: cover;
@@ -268,18 +284,6 @@ video {
   cursor: pointer;
   width: 100%;
   text-align: center;
-}
-
-.gif {
-  min-height: 12em;
-  width: 100%;
-  background-color: black;
-  background-position: center;
-  background-size: 15%;
-  /* border-top: 2px solid var(--white); */
-  display: block;
-  /* image-rendering: pixelated; */
-  background-image: url(/res/dofs/loading.gif?v7);
 }
 
 .clickme {
