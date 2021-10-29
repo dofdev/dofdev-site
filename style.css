@@ -270,7 +270,7 @@ video {
   text-align: center;
 }
 
-.dof .gif {
+.gif {
   min-height: 12em;
   width: 100%;
   background-color: black;
@@ -279,6 +279,7 @@ video {
   /* border-top: 2px solid var(--white); */
   display: block;
   /* image-rendering: pixelated; */
+  background-image: url(/res/dofs/loading.gif?v7);
 }
 
 .clickme {

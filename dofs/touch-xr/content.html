@@ -18,7 +18,8 @@ cursor = phone.pos + phone.up * offset * 3
 <span class='comment'>touch-stretch-cursor</span>
 stretch = dist(touch[0], touch[1])
 dir = calibration
-cursor = phone.pos + phone.rot * dir * stretch * 3
+origin = phone.pos + phone.rot * touch.xy
+cursor = origin + phone.rot * dir * stretch * 3
 
 <span class='comment'>tilt-touch</span>
 touch.xyz = phone.rot * touch.xy
@@ -27,18 +28,18 @@ touch.xyz = phone.rot * touch.xy
 
 <div id='fdeg'>&conint;</div>
 
-<img src='swipe-cursor.gif' alt='swipe-cursor' />
+<img class='gif' src='swipe-cursor.gif' alt='swipe-cursor' />
 <h1>swipe-cursor</h1>
 <p>extend cursor out of phone with swipe</p>
 
-<img src='touch-stretch-cursor.gif' alt='touch-stretch-cursor' />
+<img class='gif' src='touch-stretch-cursor.gif' alt='touch-stretch-cursor' />
 <h1>touch-stretch-cursor</h1>
 <p>using the distance between your thumbs extend a cursor out</p>
 
-<img src='tilt-touch.gif' alt='tilt-touch' />
+<img class='gif' src='tilt-touch.gif' alt='tilt-touch' />
 <h1>tilt-touch</h1>
 <p>tilt your phone to move the touch points in 3d space</p>
 
-<img src='gyro-keyboard.gif' alt='gyro-keyboard' />
+<img class='gif' src='gyro-keyboard.gif' alt='gyro-keyboard' />
 <h1>gyro-keyboard</h1>
 <p>tilt through the layers as you type, reducing travel and mistaps</p>

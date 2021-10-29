@@ -83,7 +83,7 @@ namespace DOFS
         html += "</head>";
         html += "<body>";
         html += "<div id='navElement'></div>";
-        html += $"<img src='{dof.name}.gif' />";
+        html += $"<img class='gif' src='{dof.name}.gif' />";
         float licenseGrow = MathF.Max((float)t - 0.5f, 0) * 2;
         float lastGrow = MathF.Max(0.5f - (float)t, 0) * 2;
         html += "<div style='display: flex; justify-content: space-between; background: black;'>";
