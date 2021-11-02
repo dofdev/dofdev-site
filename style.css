@@ -426,13 +426,16 @@ video {
   border: none;
 }
 
-#footer {
+.fineprint {
   font-family: monospace;
-  font-size: var(--small-font);
   text-align: center;
+  font-size: var(--small-font);
+  color: var(--dark);
+}
+
+#footer {
   margin-bottom: 1em;
   margin-top: 6em;
-  color: var(--dark);
 }
 
 #time {

@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Original soundtracks from all of dofdev's releases."
+      content="original soundtracks from all of dofdev's releases."
     />
     <meta name="keywords" content="dofdev ost" />
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -14,10 +14,10 @@
 
     <title>music | dofdev</title>
 
-    <link rel="stylesheet" href="/style.css?v9" />
+    <link rel="stylesheet" href="/style.css?v10" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="/in-view.min.js"></script>
-    <script src="/includes/includer.js?v9"></script>
+    <script src="/includes/includer.js?v10"></script>
   </head>
 
   <body>
@@ -40,6 +40,7 @@
       <div class="track" src="vien/menu.mp3">menu</div>
       <div class="track" src="vien/game.mp3">game</div>
     </div>
+    <div class="artist">Niko Ryan</div>
 
     <div
       class="album noSelect"
@@ -51,6 +52,15 @@
       </div>
       <div class="track" src="snakeinabox/sweet aloe.ogg">aloe for your snake bite</div>
     </div>
+    <div class="artist">Niko Ryan</div>
+
+    <div
+      class="album noSelect"
+      style="background: url('stretchsilo/cover-square.png');"
+    >
+      <div class="track" src="stretchsilo/Reorder Reshape Remake.ogg">reorder reshape remake</div>
+    </div>
+    <div class="artist">Paul Merchant</div>
 
     <br />
     <a href="/" target="_blank" style="text-align: center; display: block;">
@@ -90,7 +100,6 @@
       .album {
         display: block;
         margin: auto;
-        margin-bottom: 1em;
         padding: 32px;
         width: 192px;
         height: 192px;
@@ -99,27 +108,41 @@
         cursor: pointer;
       }
 
+      .artist {
+        text-align: center;
+        color: var(--white);
+        background-color: var(--light);
+        width: fit-content;
+        margin: 0 auto;
+        margin-bottom: 1em;
+        padding: 0.5em 1em;
+        border-radius: 0 0 0.5em 0.5em;
+        font-size: var(--small-font);
+      }
+      
       .open {
         background: black !important;
       }
-
+      
       .album .track {
         display: none;
       }
-
+      
       .open .track {
         display: block;
         color: white;
       }
-
+      
       .track {
         margin: 1em 0.5em;
         width: fit-content;
       }
-
+      
       .track:hover {
         text-decoration: underline;
       }
-    </style>
+      
+      
+      </style>
   </body>
-</html>
+  </html>

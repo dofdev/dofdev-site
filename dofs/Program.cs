@@ -100,7 +100,7 @@ namespace DOFS
         html += $"<div class='l'>{lastUpdated.ToString("yyyy.MM.dd")}</div>";
         html += "</div>";
         html += $"<h2 style='color: var(--white);text-decoration: none;'>&deg;{dof.name}</h2>";
-        html += "<a href='https://www.gnu.org/licenses/gpl-3.0.en.html'><div style='padding-bottom: 1em; font-size: var(--small-font); text-align: center; text-decoration: underline;'>GPL-3.0-only</div></a>";
+        html += "<a href='https://unlicense.org' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>unlicense</a>";
         html += $"{content}";
         html += $"";
         html += "<div id='footerElement'></div>";
