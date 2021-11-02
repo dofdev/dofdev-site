@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#navElement").load("/includes/nav.xml?v3", function () {
+  $("#navElement").load("/includes/nav.xml?v14", function () {
     $("#nav [href]").each(function () {
       if (window.location.href.includes(this.href)) {
         $(this).addClass("active")
@@ -9,11 +9,11 @@ $(document).ready(function () {
 
   // if exists
   if ($("#dofElement") != null) {
-    $("head").append("<script src='/dofs/dofs.js?v3'></script>")
-    $("#dofElement").load("/dofs/content.html?v3")
+    $("head").append("<script src='/dofs/dofs.js?v14'></script>")
+    $("#dofElement").load("/dofs/content.html?v14")
   }
     
-  $("#footerElement").load("/includes/footer.html?v3")
+  $("#footerElement").load("/includes/footer.html?v14")
 
 
   // $("#feeds").load("feeds.php", { limit: 25 }, function () {

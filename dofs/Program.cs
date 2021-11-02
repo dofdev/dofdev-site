@@ -134,20 +134,24 @@ namespace DOFS
         if (v > 100) { v = 1; }
         File.WriteAllText("version.txt", v.ToString());
 
-
-        string[] files = Directory.GetFiles("C:/dofdev/Web Development/dofdev/", "*.html", SearchOption.AllDirectories);
-        Console.WriteLine($"{files.Length} files cache busted!");
-        for (int i = 0; i < files.Length; i++)
+        string[] fileTypes = { ".html", ".js" };
+        for (int i = 0; i < fileTypes.Length; i++)
         {
-          string file = files[i];
-          string txt = File.ReadAllText(file);
-          for (int j = initV + 100; j > 0; j--)
+          string[] files = Directory.GetFiles("C:/dofdev/Web Development/dofdev/", "*" + fileTypes[i], SearchOption.AllDirectories);
+  
+          Console.WriteLine($"{files.Length} {fileTypes[i]} files cache busted!");
+          for (int j = 0; j < files.Length; j++)
           {
-            txt = txt.Replace($"?v{j}", "?v0");
-          }
+            string file = files[j];
+            string txt = File.ReadAllText(file);
+            for (int k = initV + 100; k > 0; k--)
+            {
+              txt = txt.Replace($"?v{k}", "?v0");
+            }
 
-          txt = txt.Replace("?v0", $"?v{v}");
-          File.WriteAllText(file, txt);  
+            txt = txt.Replace("?v0", $"?v{v}");
+            File.WriteAllText(file, txt);  
+          }
         }
       }
     }
