@@ -1,9 +1,3 @@
-todo: setup community tools
+# dofdev  
 
-
-
-want a better commit history for dofs??
-
-separate repo?
-
-just make this repo public?
+An effort to open higher degrees of spatial interaction free to the world.
