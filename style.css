@@ -452,7 +452,8 @@ video {
 #logo {
   display: block;
   margin: auto;
-  margin-bottom: 1em;
+  margin-top: -2rem;
+  margin-bottom: 1rem;
   width: 40%;
 }
 

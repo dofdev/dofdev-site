@@ -2,19 +2,27 @@
 
   <a href="/" title="home"></a>
 
-  <a href="/art" id="nav-art">
+  <a href="/x" title="collab">
     <svg width="24" height="24">
-      <polygon points="00,08 06,02 12,08 18,02 24,08 12,22" />
+      <polygon points="01,02 07,02 12,09 17,02 23,02 16,12 23,22 17,22 12,15 07,22 01,22 08,12" />
+      <!-- <polygon points="24,10 10,10 10,22 20,22 24,24" style="fill:rgb(0 0 0 / 25%);"/>
+      <polygon points="00,04 20,04 20,18 06,18 00,23" /> -->
     </svg>
   </a>
 
-  <a href="/music">
+  <a href="/music" title="music">
     <svg width="24" height="24">
       <polygon points="07,03 23,01 23,19 15,19 15,13 21,13 21,03 09,04.75 09,21 01,21 01,15 07,15" style=""/>
     </svg>
   </a>
 
-  <a href="https://discord.gg/65jZCW9" target="_blank">
+  <a href="/art" id="nav-art" title="art">
+    <svg width="24" height="24">
+      <polygon points="00,08 06,02 12,08 18,02 24,08 12,22" />
+    </svg>
+  </a>
+
+  <a href="https://discord.gg/65jZCW9" target="_blank" title="discord">
     <svg width="24" height="24">
       <polygon points="00,19 0.5,10 03,04 8.5,02 09,3.5 15,3.5 15.5,02 21,04 23.5,10 24,19 18,22 17,20 19,19 18.5,18 15,19.5 09,19.5 05.5,18 05,19 07,20 06,22" />
       <ellipse cx="07.8" cy="13" rx="2.4" ry="2.7" style="fill: var(--gray)" />
@@ -28,12 +36,5 @@
       <circle cx="16" cy="10" r="8" />
     </svg>
   </a> -->
-
-  <a href="mailto:contact@dofdev.org" target="_blank">
-    <svg width="24" height="24">
-      <polygon points="24,10 10,10 10,22 20,22 24,24" style="fill:rgb(0 0 0 / 25%);"/>
-      <polygon points="00,04 20,04 20,18 06,18 00,23" />
-    </svg>
-  </a>
 
 </div>
