@@ -25,7 +25,7 @@
   <div id="navElement"></div>
 
   <!-- <img src="/res/the-problem.png?v17"> -->
-  <img src='/res/chair-cube.png?v17' style="mix-blend-mode: multiply;" />
+  <img src='/res/chair-cube.png?v18' style="mix-blend-mode: screen;" />
   <div id="Contacts">
     <div class="Contact" id="ethan">
       <div class="profile-pic" style="background-image: url(/res/profiles/ethan.png?v17)"></div>
@@ -57,27 +57,47 @@
     <a href="mailto:contact@dofdev.org" target="_blank">contact@dofdev.org</a>
   </p>
 
-  <br>
-  <br>
-
-  <div style="display: flex; flex-flow: column; align-items: center; text-align: center;">
-    <a href="https://stardustxr.org" target="_blank">  
-      <img src="https://stardustxr.org/img/icon.webp" style="width: 100px;">
-      <b style="color: var(--black);">Stardust XR</b>
-    </a>
-    <a href="https://twitter.com/technobaboo" target="_blank">@technobaboo</a>
-    <!-- <p>"their a little janky and a little terpy."</p> -->
-  </div>
-  <br><br>
-  <div style="display: flex; flex-flow: column; align-items: center; text-align: center;">
-    <a href="http://www.lexting.com/" target="_blank">  
-      <img src="http://www.lexting.com/wp-content/uploads/2021/10/hand_relax_small.png" style="width: 100px;">
-      <b style="color: var(--black);">Lexting</b>
-    </a>
-    <a href="https://twitter.com/texasgreentea" target="_blank">@texasgreentea</a>
-    <!-- <p>"their a little janky and a little terpy."</p> -->
+  <div id="Contacts">
+    <div class="Contact" style="display: flex; flex-flow: row; align-items: center; text-align: center; height:256px;">
+      <a href="https://stardustxr.org" target="_blank">  
+        <br>
+        <img src="https://stardustxr.org/img/icon.webp" style="width: 100px;">
+        <br>
+      </a>
+      <div class="Info" style="padding: 0; padding-left: 1.5rem; flex-grow:0;">
+        <b style="color: var(--black); font-size: 20px;">Stardust XR</b>
+        <div style="color: white; font-size: var(--normal-font);">Nova King</div>
+        <a href="https://twitter.com/technobaboo" target="_blank">@technobaboo</a>
+      </div>
+    </div>
+    
+    <div class="Contact" style="display: flex; flex-flow: row; align-items: center; text-align: center; height:256px;">
+      <a href="http://www.lexting.com/" target="_blank">  
+        <img src="http://www.lexting.com/wp-content/uploads/2021/10/hand_relax_small.png" style="width: 100px;">
+      </a>
+      <div class="Info" style="padding: 0; padding-left: 1.5rem; flex-grow:0;">
+        <b style="color: var(--black); font-size: 20px;">Lexting</b>
+        <div style="color: white; font-size: var(--normal-font);">AJ Campbell</div>
+        <a href="https://twitter.com/texasgreentea" target="_blank">@texasgreentea</a>
+      </div>
+      <!-- <p>"their a little janky and a little terpy."</p> -->
+    </div>
   </div>
 
 
   <div id="footerElement"></div>
 </body>
+
+<script>
+  var order = 0;
+  $(document).ready(function () {
+    order = Math.floor(Math.random() * 2)
+    $('#ethan').css("order", "" + order)
+
+    // decaTime();
+    // setInterval(decaTime, 1000);
+
+    // const time = document.lastModified;
+    // $('#time').html("last updated: " + time)
+  })
+</script>
