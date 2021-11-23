@@ -80,6 +80,7 @@ namespace DOFS
         html += "<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>";
         html += "<script src='/in-view.min.js'></script>";
         html += $"<script src='/includes/includer.js?v1'></script>";
+        html += $"<title>{dof.name} | dofdev</title>";
         html += "</head>";
         html += "<body>";
         html += "<div id='navElement'></div>";
