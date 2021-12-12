@@ -49,7 +49,7 @@
     for (var i = 0; i < dofTree.length; i++) {
       var dof = dofTree[i]
       html += '<div class="dof">'
-      html += '<div class="name" onclick="dofs('+i+')">'+ dof +'</div>'
+      html += '<div class="name" onclick="dofs('+i+')">'+ dof +'<a href="/dofs/' + dof +'"><div style="float: right; font-weight: bold; color: var(--light);">+</div></a></div>'
       if (i == index) {
         html += '<a href="/dofs/'+ dof +'" style="position: relative; width: 100%;">'
         html += '<img class="gif" title="'+ dof +'" src="/dofs/'+ dof +'/'+ dof +'.gif?v18"/>'
