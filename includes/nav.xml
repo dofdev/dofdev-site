@@ -1,6 +1,6 @@
 <div id="nav" class="noSelect">
 
-  <a href="/" title="home"></a>
+  <a href="/" title="home" id="home"></a>
 
   <a href="/x" title="collab">
     <svg width="24" height="24">

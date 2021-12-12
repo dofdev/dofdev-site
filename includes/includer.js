@@ -2,9 +2,17 @@ $(document).ready(function () {
   $("#navElement").load("/includes/nav.xml?v17", function () {
     $("#nav [href]").each(function () {
       if (window.location.href.includes(this.href)) {
+        if (window.location.href == this.href) {
+          if ($(this).attr('id') == 'home') {
+            this.href = '/dofs'
+          }
+          return false
+        }
+
         $(this).addClass("active")
       }
     })
+    console.log($("#home").attr('href'))
   })
 
   // if exists
