@@ -31,7 +31,7 @@
   </div> -->
   <div class="vid">
     <iframe src="https://www.youtube.com/embed/juY0xp8ro7g?&autoplay=1&modestbranding=1&rel=0" title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowfullscreen></iframe>
   </div>
 
@@ -57,12 +57,105 @@
     </a>
   </div>
 
-  <h2>compatible headsets</h2>
-  <div class="btn-cluster">
+  <!-- <h2>available builds</h2> -->
+  <!-- <div class="btn-cluster">
     <a href="https://www.oculus.com/experiences/go/3156518597752790" class="btn">Oculus Go</a>
     <a href="https://www.oculus.com/experiences/gear-vr/3156518597752790" class="btn">GearVR</a>
     <a href="https://dofdev.itch.io/snake-in-a-box" class="btn">Oculus Quest</a>
     <a href="https://dofdev.itch.io/snake-in-a-box" class="btn">Oculus Rift</a>
+  </div> -->
+  <div style="border: 1px solid; display: none;">
+  <div style="display: flex; text-align: center;">
+    <div style="flex-grow: 1; padding: 1rem; background-color: rgba(255, 255, 255, 0.1);">what</div>
+    &nbsp;
+    <div style="flex-grow: 1; padding: 1rem; background-color: rgba(255, 255, 255, 0.1);">why</div>
+    &nbsp;
+    <div style="flex-grow: 1; padding: 1rem; background-color: rgba(255, 255, 255, 0.1); color: white;">how</div>
+  </div>
+  <br>
+  <div id="what" style="display: none;">
+    <p>
+      currently there is a fully featured oculus pc build available
+      <br>(w/more builds on the way)
+    </p>
+  </div>
+  <div id="why" style="display: none;">
+    <p>
+      please set aside the worst of the hype culture around crypto, we are simply making use of the technology
+      to make our games more accessible to everyone. through it's core virtue of being a more global and decentralized payment system
+    </p>
+  </div>
+  <div id="how" style="">
+    <p>
+      1. install metamask as a browser extension or app<br>
+      2. connect to the cheapeth network<br>
+      3. buy, mine or even beg for cth<br>
+      then you are ready to go! ^-^<br>
+    </p>
+  </div>
+  </div>
+
+  <div class='centered' style="display: none;">
+    <br><br>
+    <!-- <img src='https://ethereum.org/static/a110735dade3f354a46fc2446cd52476/db4de/eth-home-icon.webp' /> -->
+    <img src='https://cheapeth.org/images/logo.png' height="192px" />
+    <sub>*hosted on the beautiful <a href="https://cheapeth.org/">cheapeth</a><br>until <a href="https://ethereum.org/en/eth2/">ethereum's</a> second coming</sub>
+    <br>
+    <!-- <h1>web3</h1> -->
+    <div id='theLatest'>...</div>
+    <br>
+    <div id='minPrice'>...</div>
+    <br>
+    <label>
+      <input id='price' class='price' type='number' value='0.01' step='0.0025' min='0.01'>
+      <sub>&nbsp;CTH</sub>
+    </label><br>
+    <div class='btn' onclick='buyAccess($("#price").val())'>buy</div>
+    <br>
+    <div id='access' style='display: none'>
+      <h2>files</h2>
+      <div id='result'>...</div>
+      <br>
+      <div class='btn' onclick='getContent()'>get</div>
+    </div>
+    <br><br><br>
+  
+    <div id='dev' style='display: none'>
+      <h2>backend</h2>
+      <div id='contract'>0.0 CTH | ~0.0 USD</div>
+      <br>
+      <label>
+        <input id='payDevAddr' type='text' placeholder='0x0978dd8Dc963F79d21FA9DB15b20A7CB111F846F'>
+        <sub>&nbsp;ETH</sub>
+      </label><br>
+      <label>
+        <input id='payDevPrice' class='price' type='number' value='0.0' step='0.0025' min='0.001'>
+        <sub>&nbsp;CTH</sub>
+      </label><br>
+      <div class='btn' onclick='payDev($("#payDevAddr").val(), $("#payDevPrice").val())'>pay</div>
+      <br>
+      <h3>dev</h3>
+      <label>
+        <input id='addDev' type='text' placeholder='0x0978dd8Dc963F79d21FA9DB15b20A7CB111F846F'>
+        <sub>&nbsp;ETH</sub>
+      </label><br>
+      <div class='btn' onclick='addDev($("#addDev").val())'>add</div>
+      <br>
+      <h3>content</h3>
+      <label>
+        <input id='newContent' type='text' placeholder='QmdHQxpS4azPyQAUAGv841VThgcYTHetNKnoXhtyynBbxc'>
+        <sub>&nbsp;QID</sub>
+      </label><br>
+      <div class='btn' onclick='newContent($("#newContent").val())'>new</div>
+      <br>
+      <h3>price</h3>
+      <label>
+        <input id='setPrice' class='price' type='number' value='0.01' step='0.0025' min='0.001'>
+        <sub>&nbsp;CTH</sub>
+      </label><br>
+      <div class='btn' onclick='setPrice($("#setPrice").val())'>set</div>
+      <br>
+    </div>
   </div>
 
   <div id="footerElement"></div>
@@ -70,3 +163,159 @@
 </body>
 
 </html>
+
+<style>
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    text-align: center;
+  }
+  .btn {
+    /* background-color: #000000;
+    color: rgb(255, 255, 255);
+    border-bottom: 2px solid rgb(209, 209, 209); */
+    margin: 0 auto;
+    padding: 0.5em;
+    width: 6em;
+    box-sizing: border-box;
+    /* text-align: center; */
+    /* font-size: 1.25rem; */
+    /* font-weight: bold; */
+    /* cursor: pointer;
+    user-select: none;
+    letter-spacing: 0.1em; */
+  }
+  input {
+    font-family: inherit;
+  }
+  .price {
+    width: 5em;
+  }
+  label {
+    margin: 0 auto;
+    padding: 0;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  #result {
+    color: rgb(55, 102, 204);
+    height: 1em;
+    font-family: monospace;
+    text-align: center;
+  }
+  #dev {
+    /* background-color: white; */
+    padding: 1em 2em;
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+  }
+</style>
+
+<script src='ethers-5.2.umd.min.js' type='application/javascript'></script>
+<script src='abi.js'></script>
+<script>
+  const provider = new ethers.providers.Web3Provider(window.ethereum, 1337702) // 777 is cheapeth
+  const signer = provider.getSigner()
+  const contract = new ethers.Contract('0x38902447f002ca7694CEa7B9C970ae636E80b8B2', abi, provider)
+  const coSigner = contract.connect(signer)
+  start()
+
+  async function start() {
+    await provider.send('eth_requestAccounts', [])
+    
+    var myAddress = await signer.getAddress()
+    var balance = await provider.getBalance(myAddress)
+    console.log('metamask: ' + ethers.utils.formatEther(balance))
+
+    var count = await contract.count()
+    var value = await contract.latest()
+    theLatest(count, value)
+    
+    var price = ethers.utils.formatEther(await contract.price())
+    minPrice(price)
+    
+    access(myAddress)
+    dev(myAddress)
+
+    contract.on('Payed', (address, amount) => {
+      dev(myAddress);
+    })
+
+    contract.on('Bought', (count, value) => {
+      theLatest(count, value)
+      access(myAddress)
+    })
+  }
+
+  async function access(addr) {
+    var access = await coSigner.access(addr)
+    if (access) {
+      $('#access').show()
+      $('#access #result').text('press to get latest')
+    } else {
+      $('#access').hide()
+    }
+  }
+  
+  async function dev(addr) {
+    var dev = await coSigner.dev(addr)
+    if (dev) {
+      var cBalance = ethers.utils.formatEther(await provider.getBalance(contract.address))
+      $('#contract').html(`${cBalance} CTH | ~${(cBalance * 4200 / 1000 / 1000).toFixed(2)} USD`)
+      $('#dev').show()
+    } else {
+      $('#dev').hide()
+    }
+  }
+
+  function theLatest(count, value) {
+    var c = ('0000'+count).substring(count.toString().length)
+    $('#theLatest').html(`<b>latest:</b><br>#${c} @ ${ethers.utils.formatEther(value)} CTH`)
+  }
+
+  function minPrice(price) {
+    $('#minPrice').html(`&ge; ${price} CTH`)
+    $('#price').val(price)
+    $('#price').attr('min', price)
+  }
+
+  async function addDev(addr) {
+    await coSigner.addDev(addr)
+    $('#addDev').val('...')
+  }
+
+  async function payDev(addr, price) {
+    await coSigner.payDev(addr, ethers.utils.parseEther(price))
+    $('#contract').html('processing...')
+  }
+  
+  async function setPrice(price) {
+    await coSigner.setPrice(ethers.utils.parseEther(price))
+    minPrice(price)
+  }
+
+  async function newContent(qid) {
+    await coSigner.newContent(qid)
+    $('#newContent').val('...')
+  }
+
+  async function buyAccess(price) {
+    $('#theLatest').html('processing...')
+    let overrides = {
+      value: ethers.utils.parseEther(price),
+      gasLimit: 100000
+    }
+    await coSigner.buyAccess(overrides)
+  }
+
+  async function getContent() {
+    $('#result').html('...')
+    let g = await coSigner.getContent(0)
+    $('#result').html(`
+      <a href='http://139.177.201.219:8080/ipfs/${g}?filename=SnakeInABox.zip' download='SnakeInABox.zip'>download</a>
+    `)
+  }
+</script>
