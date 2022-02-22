@@ -457,6 +457,27 @@ video {
   width: 40%;
 }
 
+#latest {
+  display: flex;
+  width: 100%;
+  background-color: var(--light);
+  border-bottom: 2px solid #00000071;
+  align-items: center;
+}
+#latest-img {
+  height: 160px;
+  flex: 2;
+  background-image: url(/res/banner.png?v18);
+  background-position: center;
+  background-size: cover;
+}
+#latest-desc {
+  flex: 3;
+  padding: 1.5rem 1rem; 
+  font-size: 13px;
+}
+
+
 #Contacts {
   display: flex;
   flex-flow: row wrap;
@@ -602,6 +623,20 @@ p a {
   #logo {
     width: 66%;
   }
+
+  #latest {
+    flex-flow: column;
+    align-items: center;
+  }
+  #latest-img {
+    flex: none;
+    height: 200px;
+    width: 100%;
+  }
+  #latest-desc {
+    padding: 1em;
+  }
+
   #dofs {
     width: 100%;
   }

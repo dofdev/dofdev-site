@@ -18,7 +18,6 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="in-view.min.js"></script>
   <script src="includes/includer.js?v18"></script>
-  <script src="https://embed.twitch.tv/embed/v1.js"></script>
 </head>
 
 <body>
@@ -37,7 +36,7 @@
       to the world.
     </p>
     <!-- <br> -->
-    <img src="res/square-logo.png" id="logo">
+    <img src="res/square-logo.png?v18" id="logo">
     <h1 style="font-size: 1.1em; padding-bottom: 0;">degrees of freedom development</h1>
     <br>
     <!-- <p style="text-align:center">
@@ -48,31 +47,25 @@
   </div>
   <!-- <div id="fdeg">&conint;</div> -->
 
-  <div style="height: 1em;"></div>
+  <br>
+  <div id="latest">
+    <div id="latest-img"></div>
+    <div id="latest-desc">
+      <!-- <h1 style="text-align: left; padding-left: 0;">latest</h1> -->
+      <span style="font-size: 16px;">[ latest ]</span><br><br>
+      Currently in the process of unifying as many of our dofs as we can elegantly pack down into the constraints of current XR controllers.
+    </div>
+  </div>
+  <br><br>
 
   <div id="dofElement"></div> 
-
-  <div style="display:flex; justify-content: center; align-items: center;">
-    <img width="75px" height="75px" src="res/bitcoin-wallet.png" style="image-rendering: pixelated; padding: 0 0.5em; margin:0;" />
-    <div style="color: white; font-size: var(--normal-font);">Bitcoin Wallet</div>
-  </div>
-  <div style="text-align: center; line-height: 150%;">
-    <div style="font-size: var(--small-font);">[fund our access to time and resources]</div>
-    <div style="font-size: var(--small-font);" onclick="copyThat(this)">bc1qqkk9vg8d8nwwd5s50uk2yr93g5v0rzd878r8ar</div>
-    <div style="font-size: var(--small-font); color: var(--dark)">^ click to copy ^</div>
-  </div>
-
-  <br>
-  <br>
-  <br>
 
   <!-- <iframe src="https://discord.com/widget?id=557638031805513757&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe> -->
   
   <!-- <h1>live</h1>
   <div style="text-align: center;">[ development and more ]</div>
   <br> -->
-  <div class="vid" id="twitch-embed"></div>
-  <br>
+  <br><br>
 
   <h1>projects</h1>
   <div style="text-align: center;">[ FREE grayscaled versions ]</div>
@@ -94,6 +87,21 @@
       <div>salish keyboard</div>
     </a>
   </div>
+
+  <div style="display:flex; justify-content: center; align-items: center;">
+    <img width="75px" height="75px" src="res/bitcoin-wallet.png"
+      style="image-rendering: pixelated; padding: 0 0.5em; margin:0;" />
+    <div style="color: white; font-size: var(--normal-font);">Bitcoin Wallet</div>
+  </div>
+  <div style="text-align: center; line-height: 150%;">
+    <div style="font-size: var(--small-font);">[fund our access to time and resources]</div>
+    <div style="font-size: var(--small-font);" onclick="copyThat(this)">bc1qqkk9vg8d8nwwd5s50uk2yr93g5v0rzd878r8ar</div>
+    <div style="font-size: var(--small-font); color: var(--dark)">^ click to copy ^</div>
+  </div>
+  
+  <br>
+  <br>
+  <br>
 
   <!-- 
   <div class="strip">
@@ -134,22 +142,6 @@
       // console.log($(el).html())
       navigator.clipboard.writeText($(el).html());
     }
-
-    var embed = new Twitch.Embed("twitch-embed", {
-      width: 854,
-      height: 480,
-      channel: "spatialfree",
-      layout: "video",
-      muted: false,
-      autoplay: false
-    })
-
-    embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
-      var player = embed.getPlayer()
-      player.play()
-
-      console.log(embed.getPlaybackStats())
-    })
 
   </script>
 

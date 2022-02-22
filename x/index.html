@@ -84,6 +84,10 @@
     </div>
   </div>
 
+  <br>
+  <div class="vid" id="twitch-embed"></div>
+  <br>
+
 
   <div id="footerElement"></div>
 </body>
@@ -99,5 +103,22 @@
 
     // const time = document.lastModified;
     // $('#time').html("last updated: " + time)
+    
   })
+
+  var embed = new Twitch.Embed("twitch-embed", {
+      width: 854,
+      height: 480,
+      channel: "spatialfree",
+      layout: "video",
+      muted: false,
+      autoplay: false
+    })
+
+    embed.addEventListener(Twitch.Embed.VIDEO_READY, () => {
+      var player = embed.getPlayer()
+      player.play()
+
+      console.log(embed.getPlaybackStats())
+    })
 </script>
