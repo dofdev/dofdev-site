@@ -452,16 +452,15 @@ video {
 #logo {
   display: block;
   margin: auto;
-  margin-top: -2rem;
-  margin-bottom: 1rem;
-  width: 40%;
+  width: 500px;
 }
 
 #latest {
   display: flex;
   width: 100%;
-  background-color: var(--light);
-  border-bottom: 2px solid #00000071;
+  background-color: #666;
+  border-top: 2px solid #97979771;
+  border-bottom: 2px solid #97979771;
   align-items: center;
 }
 #latest-img {
@@ -475,6 +474,7 @@ video {
   flex: 3;
   padding: 1.5rem 1rem; 
   font-size: 13px;
+  color: var(--white);
 }
 
 
@@ -576,7 +576,9 @@ video {
   margin: 1em auto;
   font-family: "Nanum Myeongjo", serif;
   text-align: center;
-  font-size: 2em;
+  font-size: 36px;
+  font-weight: bold;
+  color: #666;
 }
 
 @keyframes shimmer {
@@ -621,7 +623,7 @@ p a {
 
 @media only screen and (max-width: 500px) {
   #logo {
-    width: 66%;
+    width: 100%;
   }
 
   #latest {
@@ -660,6 +662,6 @@ p a {
     height: 100vh;
   } */
   .statement {
-    font-size: 4vw;
+    font-size: 3.7vw;
   }
 }
