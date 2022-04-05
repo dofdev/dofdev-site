@@ -101,7 +101,7 @@ namespace DOFS
         html += $"<div class='l'>{lastUpdated.ToString("yyyy.MM.dd")}</div>";
         html += "</div>";
         html += $"<h2 style='color: var(--white);text-decoration: none;'>&deg;{dof.name}</h2>";
-        html += "<a class='fineprint' href='/dofs' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>MIT License | Copyright &copy; 2018-2022 dofdev</a>";
+        html += "<a class='fineprint' href='/dofs' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>MIT License | Copyright &copy; 2022 dofdev</a>";
         html += $"{content}";
         html += $"";
         html += "<div id='footerElement'></div>";
