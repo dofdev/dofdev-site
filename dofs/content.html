@@ -19,7 +19,21 @@
 </div>
 
 <script>
+  var detail = 1
   $(document).ready(function () {  
+    let queryString = window.location.search
+    let urlParams = new URLSearchParams(queryString)
+    let d = parseInt(urlParams.get('detail'))
+    // if NaN, set to 0
+    if (isNaN(d)) {
+      d = 1
+    }
+    detail = d
+
+    if (detail == 0) {
+      $("head").append(`<link rel="stylesheet" href="/dofs/detail_0.css">`)
+    }
+
     var i = localStorage.getItem('dofs')
     if (i == null) {
       i = 0
@@ -49,9 +63,16 @@
     for (var i = 0; i < dofTree.length; i++) {
       var dof = dofTree[i]
       html += '<div class="dof">'
-      html += '<div class="name" onclick="dofs('+i+')">'+ dof +'<a href="/dofs/' + dof +'"><div style="float: right; font-weight: bold; color: var(--light);">+</div></a></div>'
+      html += '<div class="name" onclick="dofs('+i+')">'+ dof
+      let href = ``
+      if (detail > 0) {
+        href = `href="/dofs/${dof}"`
+        html += `<a ${href}><div style="float: right; font-weight: bold; color: var(--light);">+</div></a>`
+      }
+      html += `</div>`
       if (i == index) {
-        html += '<a href="/dofs/'+ dof +'" style="position: relative; width: 100%;">'
+        
+        html += `<a ${href} style="position: relative; width: 100%;">`
         html += '<img class="gif" title="'+ dof +'" src="/dofs/'+ dof +'/'+ dof +'.gif?v18"/>'
         html += '<div class="clickme"></div>'
         html += '</a>'

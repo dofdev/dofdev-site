@@ -1,0 +1,12 @@
+body {
+  background-color: black;
+  color: white;
+}
+
+#nav, #footer, #license, .fineprint {
+  display: none !important;
+}
+
+div, p {
+  color: white;
+}
