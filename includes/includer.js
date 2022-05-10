@@ -18,7 +18,7 @@ $(document).ready(function () {
   // if exists
   if ($("#dofElement") != null) {
     $("head").append("<script src='/dofs/dofs.js?v18'></script>")
-    $("#dofElement").load("/dofs/content.html?v18")
+    $("#dofElement").load("/dofs/content.html?v19")
   }
     
   $("#footerElement").load("/includes/footer.html?v18")
