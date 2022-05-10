@@ -1,9 +1,10 @@
 body {
   background-color: black;
   color: white;
+  margin-top: 0;
 }
 
-#nav, #footer, #license, .fineprint {
+#nav, #footer, #dof-header, #license, .fineprint {
   display: none !important;
 }
 
