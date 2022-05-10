@@ -1,5 +1,5 @@
 $(document).ready(function () {
-  $("#navElement").load("/includes/nav.xml?v19", function () {
+  $("#navElement").load("/includes/nav.xml?v18", function () {
     $("#nav [href]").each(function () {
       if (window.location.href.includes(this.href)) {
         if (window.location.href == this.href) {
@@ -17,11 +17,11 @@ $(document).ready(function () {
 
   // if exists
   if ($("#dofElement") != null) {
-    $("head").append("<script src='/dofs/dofs.js?v19'></script>")
+    $("head").append("<script src='/dofs/dofs.js?v18'></script>")
     $("#dofElement").load("/dofs/content.html?v19")
   }
     
-  $("#footerElement").load("/includes/footer.html?v19")
+  $("#footerElement").load("/includes/footer.html?v18")
 
 
   // $("#feeds").load("feeds.php", { limit: 25 }, function () {
