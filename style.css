@@ -15,7 +15,7 @@
 
 body {
   margin: 0 auto;
-  margin-top: 4em;
+  margin-top: 1em;
   background-color: var(--gray);
   max-width: var(--device-width);
   font-family: 'DM Mono', monospace;
@@ -56,7 +56,7 @@ p, ul li {
   color: var(--black);
   padding: 0;
   margin: 0 1em;
-  padding-bottom: 2em;
+  padding-bottom: 1em;
 }
 
 .l {
@@ -238,7 +238,7 @@ video {
   background-position: center;
   background-size: cover;
   /* margin: 0.5em; */
-  margin-bottom: 3em;
+  margin-bottom: 6em;
   width: 49%;
   height: 12em;
   transition: 0.3s;
@@ -255,17 +255,19 @@ video {
   margin: 0 auto;
   vertical-align: baseline;
   padding: 8px 16px;
-  background-color: rgb(255 255 255);
+  /* background-color: rgb(255 255 255); */
+  color: var(--dark);
   position: relative;
-  top: 28px;
+  top: 3.3em;
+  height: 2em;
 }
 
 #dofs {
-  display: flex;
+  /* display: flex;
   flex-flow: column;
   justify-content: space-between;
-  margin: 0 auto;
-  width: 400px;
+  margin: 0 auto; */
+  /* width: 400px; */
 }
 
 .dof {
@@ -365,7 +367,7 @@ video {
   transition: 0.3s;
   width: 49%;
   display: flex;
-  align-items: flex-start;
+  align-items: flex-end;
   box-shadow: 0px 2px rgba(0, 0, 0, 0.15);
 }
 
@@ -375,7 +377,7 @@ video {
   padding: 8px 16px;
   background-color: rgb(255 255 255);
   position: relative;
-  top: -28px;
+  top: 58px;
   right: 100%;
 }
 
@@ -394,7 +396,7 @@ video {
   left: 0;
   right: 0;
   max-width: var(--device-width);
-  height: 4em;
+  height: 36px;
   margin: 0 auto;
   padding: 0 1em;
   /* box-shadow: 0 4px 4px rgb(0 0 0 / 25%); */
@@ -405,8 +407,11 @@ video {
 #nav a {
   display: block;
   margin: auto 0;
-  padding: 1em;
+  padding: 0 9px;
   font-weight: bold;
+  display: flex;
+  height: 100%;
+  border-top: 2px solid transparent;
   /* border-bottom: 1px solid rgb(148, 148, 148); */
 }
 
@@ -415,16 +420,17 @@ video {
   fill: var(--light);
   stroke: var(--light);
   stroke-width: 0;
+  width: 18px;
 }
 
-#nav a:first-of-type {
+/* #nav a:first-of-type {
   padding: 0;
   background-image: url(/res/small-icon.png);
   width: 32px;
   height: 32px;
   background-size: contain;
   border: none;
-}
+} */
 
 .fineprint {
   font-family: monospace;
@@ -452,7 +458,9 @@ video {
 #logo {
   display: block;
   margin: auto;
-  width: 500px;
+  width: 512px;
+  margin-top: -64px;
+  margin-bottom: -28px;
 }
 
 #latest {
@@ -573,11 +581,11 @@ video {
 }
 
 #fdeg {
-  margin: 1em auto;
+  margin: 2rem auto;
   font-family: "Nanum Myeongjo", serif;
   text-align: center;
-  font-size: 36px;
-  font-weight: bold;
+  font-size: 64px;
+  /* font-weight: bold; */
   color: #666;
 }
 
@@ -595,16 +603,27 @@ p a {
   text-decoration: underline;
 }
 
-/* #mission {
-  height: 95vh;
-} */
-
-/* #mission p {
-  text-indent: 22em;
-} */
-
 .statement {
   text-align: right;
+}
+
+#core {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+#core a {
+  background-color: #666;
+  padding: 0.5em 1em;
+  border-radius: 2em;
+  font-weight: normal;
+  color: var(--light);
+  border-bottom: 1px solid var(--light);
+  font-size: var(--normal-font);
 }
 
 .noSelect {
@@ -617,13 +636,19 @@ p a {
   user-select: none;
 }
 
-.active svg {
+/* .active svg {
   fill: white !important;
+} */
+
+.active {
+  border-color: var(--light) !important;
 }
 
 @media only screen and (max-width: 500px) {
   #logo {
-    width: 100%;
+    width: 85%;
+    margin-top: -32px;
+    margin-bottom: -12px;
   }
 
   #latest {
@@ -640,7 +665,7 @@ p a {
   }
 
   #dofs {
-    width: 100%;
+    /* width: 100%; */
   }
   .dof {
     width: 100%;
@@ -655,12 +680,6 @@ p a {
     width: 100%;
     border: none;
   }
-  /* #mission p {
-    text-indent: 0;
-  } */
-  /* #mission {
-    height: 100vh;
-  } */
   .statement {
     font-size: 3.7vw;
   }

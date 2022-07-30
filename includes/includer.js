@@ -8,8 +8,10 @@ $(document).ready(function () {
           }
           return false
         }
-
-        $(this).addClass("active")
+        
+        if ($(this).attr('id') != 'home') {
+          $(this).addClass("active")
+        }
       }
     })
     console.log($("#home").attr('href'))

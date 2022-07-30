@@ -39,7 +39,7 @@ namespace DOFS
         new DOF(new DateTime(2019, 10, 28), "offset-cursor"),
         new DOF(new DateTime(2019, 11, 03), "fullstick"),
         new DOF(new DateTime(2020, 04, 21), "trackballer"),
-        new DOF(new DateTime(2021, 10, 15), "parabolizer"),
+        new DOF(new DateTime(2021, 10, 15), "quadraticizer"),
         new DOF(new DateTime(2021, 10, 15), "twist-cursor"),
         new DOF(new DateTime(2021, 10, 18), "cubic-flow"),
         new DOF(new DateTime(2021, 10, 29), "reach-cursor"),

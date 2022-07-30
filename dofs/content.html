@@ -1,27 +1,54 @@
 <div id="dof-header">
-  <h1>dofs</h1>
-  <p style="text-align: center;">[ new interaction mechanics ]</p>
+  <div id="core">
+    <a href="/" style="color: var(--white);">&deg;dofs</a>
+    <!-- <a href="https://dofdev.net" style="color: var(--dark);">&boxbox;&ThinSpace;layers</a> -->
+    <a href="https://dofdev.com">&hercon;&ThinSpace;games</a>
+  </div>
+  <br>
+  <h1>&deg;dofs</h1>
+  <p style="text-align: center;">principle propioceptive remappings<br>
+    <span style="text-align: center; color: var(--dark);">/* distilled down into free and open source interoperable <a href="https://ethanmerchant.com/dataset/?page=1" style="color: var(--dark);" target="blank">patterns</a> */</span>
+  </p>
 </div>
-<div id="dofs"></div>
-<br>
 <div class="fineprint">
-  MIT License | Copyright © 2018-2021 dofdev
+  MIT License | Copyright © 2018-2022 dofdev
   <div onclick="showLicense(this)" style="user-select: none; cursor: pointer;">...</div>
   <div class="fineprint" id="license">
     <br>
-    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+    Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated
+    documentation files (the "Software"), to deal in the Software without restriction, including without limitation the
+    rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+    permit persons to whom the Software is furnished to do so, subject to the following conditions:
     <br><br>
-    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+    The above copyright notice and this permission notice shall be included in all copies or substantial portions of the
+    Software.
     <br><br>
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE
+    WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS
+    OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+    OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <br><br>
   </div>
-  <br><br>
   <!-- <span style='color: var(--black)'><b>why GPLv3?</b> "entities who suppress the workings and rights of their advancements to serve their own egocentric interests, are a pragmatic leech on human existence."</span> -->
 </div>
 
+
+
+<div id="scroller" style="position: absolute; height: 12px; width: 12px; z-index: 100; mix-blend-mode: difference; transition: 0.1s;">
+  <!-- arrow pointing in from the left -->
+  <svg width="24" height="24" viewBox="0 0 24 24">
+    <polygon points="-1,0 20,12 -1,24" fill="var(--white)" stroke="var(--black)"></polygon>
+  </svg>
+</div>
+
+<br>
+
+<div id="dofs"></div>
+<br>
+
 <script>
   var detail = 1
+  var windowHeight = window.innerHeight
   $(document).ready(function () {  
     let queryString = window.location.search
     let urlParams = new URLSearchParams(queryString)
@@ -43,6 +70,37 @@
     dofs(i)
     // dofTree.length - 1
     $('#license').toggle()
+
+
+    $('.project-vid').each(function () {
+      $(this).attr('poster', '/res/overlay.png')
+    })
+
+    $(window).scroll(function () {
+      // viewport height
+      let scrollPos = $(window).scrollTop() + (windowHeight / 2)
+      $('#scroller').css('top', scrollPos + 'px')
+      $('.project-vid').each(function () {
+        if ($(this).attr('src') != undefined) {
+          $(this).trigger('pause')
+        }
+
+        $(this).next().css('box-shadow', 'inset 0px 0px 0px 4px #cccccc00')
+
+        if (scrollPos > $(this).offset().top && scrollPos < $(this).offset().top + $(this).height()) {
+          $(this).next().css('box-shadow', 'inset 0px 0px 0px 4px #ccc')
+          // console.log($(this).attr('src'))
+          if ($(this).attr('src') == undefined) {
+            $(this).attr('src', $(this).attr('data-src')) // + '?v' + Math.random()
+            // $(this).attr('src', 'https://ethanmerchant.com/res/videos/raw-oriel-2x-RIFE-RIFE3.1-60fps.mp4') // + '?v' + Math.random()
+          }
+
+          if ($(this).attr('src') != undefined) {
+            $(this).trigger('play')
+          }
+        }
+      })
+    })
   })
 
   function showLicense(el) {
@@ -61,26 +119,97 @@
       localStorage.setItem('dofs', index)
     }
 
-    var html = ''      
+    // <a href="" target="blank">
+    //   <div class="project">
+    //     <video autoplay muted loop class="project-vid" data-src="color-cube.webm?v16"></video>
+    //     <div class="project-txt">&deg;color-cube</div>
+    //     <div class="project-power">xyz -> rgb color picker and palette container</div>
+    //   </div>
+    // </a>
+
+    var html = ''
     for (var i = 0; i < dofTree.length; i++) {
-      var dof = dofTree[i]
-      html += '<div class="dof">'
-      html += '<div class="name" onclick="dofs('+i+')">'+ dof
-      let href = ``
-      if (detail > 0) {
-        href = `href="/dofs/${dof}"`
-        html += `<a ${href}><div style="float: right; font-weight: bold; color: var(--light);">+</div></a>`
-      }
-      html += `</div>`
-      if (i == index) {
-        
-        html += `<a ${href} style="position: relative; width: 100%;">`
-        html += '<img class="gif" title="'+ dof +'" src="/dofs/'+ dof +'/'+ dof +'.gif?v18"/>'
-        html += '<div class="clickme"></div>'
-        html += '</a>'
-      }
+      var dof = dofTree[i].split('|')[0]
+      var desc = dofTree[i].split('|')[1]
+      let href = `/dofs/${dof}`
+
+      html += `<a href="${href}">`
+      html += `<div class="project">`
+      html += `<video autoplay muted loop class="project-vid" data-src="/dofs/${dof}/${dof}.webm"></video>`
+      html += `<div class="project-txt">&deg;${dof}</div>`
+      html += `<div class="project-power">${desc}</div>`
       html += '</div>'
+      html += '</a>'
     }
     $('#dofs').html(html)
   }
 </script>
+
+<style>
+.project {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: 6rem;
+  position: relative;
+  transition: 0.5s;
+}
+.project:hover {
+  box-shadow: 0 0 1rem 0rem rgba(0, 0, 0, 0.5);
+  transition: 0.1s;
+}
+.project-vid {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  right: 0;
+  bottom: 0;
+  padding: 0;
+  /* cursor: pointer; */
+  transition: 0.5s;
+}
+.project-txt {
+  /* box-shadow: inset 0px 0px 0px 6px #fff; */
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-size: var(--large-font);
+  line-height: 420px;
+  mix-blend-mode: difference;
+  color: var(--white);
+  padding: 20px;
+  user-select: none;
+  pointer-events: none;
+}
+.project-number {
+  background-color: var(--black);
+  color: var(--gray);
+  width: fit-content;
+  padding: 0.25rem 0.5rem;
+  font-size: smaller;
+  font-family: monospace;
+  margin-top: -1.4rem;
+  margin-left: auto;
+}
+.project-power {
+  text-align: center;
+  padding: 0.5rem 1rem;
+}
+
+@media screen and (max-width: 800px) {
+  .project {
+    height: 200px;
+  }
+  .project-vid {
+    height: 200px;
+  }
+  .project-txt {
+    font-size: 32px;
+    line-height: 256px;
+  }
+}
+</style>
