@@ -138,7 +138,7 @@ namespace DOFS
         string[] fileTypes = { ".html", ".js" };
         for (int i = 0; i < fileTypes.Length; i++)
         {
-          string[] files = Directory.GetFiles("C:/dofdev/Web Development/dofdev/", "*" + fileTypes[i], SearchOption.AllDirectories);
+          string[] files = Directory.GetFiles(Directory.GetCurrentDirectory(), "*" + fileTypes[i], SearchOption.AllDirectories);
   
           Console.WriteLine($"{files.Length} {fileTypes[i]} files cache busted!");
           for (int j = 0; j < files.Length; j++)

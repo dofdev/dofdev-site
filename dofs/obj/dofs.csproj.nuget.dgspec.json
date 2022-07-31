@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\dofdev\\Web Development\\dofdev\\dofs\\dofs.csproj": {}
+    "B:\\dofdev\\Web Development\\org\\dofs\\dofs.csproj": {}
   },
   "projects": {
-    "C:\\dofdev\\Web Development\\dofdev\\dofs\\dofs.csproj": {
+    "B:\\dofdev\\Web Development\\org\\dofs\\dofs.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\dofdev\\Web Development\\dofdev\\dofs\\dofs.csproj",
+        "projectUniqueName": "B:\\dofdev\\Web Development\\org\\dofs\\dofs.csproj",
         "projectName": "dofs",
-        "projectPath": "C:\\dofdev\\Web Development\\dofdev\\dofs\\dofs.csproj",
+        "projectPath": "B:\\dofdev\\Web Development\\org\\dofs\\dofs.csproj",
         "packagesPath": "C:\\Users\\cadet\\.nuget\\packages\\",
-        "outputPath": "C:\\dofdev\\Web Development\\dofdev\\dofs\\obj\\",
+        "outputPath": "B:\\dofdev\\Web Development\\org\\dofs\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.103\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.107\\RuntimeIdentifierGraph.json"
         }
       }
     }

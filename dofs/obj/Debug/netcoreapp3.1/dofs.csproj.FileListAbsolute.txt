@@ -12,3 +12,17 @@ C:\dofdev\Web Development\dofdev\dofs\bin\Debug\netcoreapp3.1\dofs.pdb
 C:\dofdev\Web Development\dofdev\dofs\obj\Debug\netcoreapp3.1\dofs.dll
 C:\dofdev\Web Development\dofdev\dofs\obj\Debug\netcoreapp3.1\dofs.pdb
 C:\dofdev\Web Development\dofdev\dofs\obj\Debug\netcoreapp3.1\dofs.genruntimeconfig.cache
+B:\dofdev\Web Development\org\dofs\bin\Debug\netcoreapp3.1\dofs.exe
+B:\dofdev\Web Development\org\dofs\bin\Debug\netcoreapp3.1\dofs.deps.json
+B:\dofdev\Web Development\org\dofs\bin\Debug\netcoreapp3.1\dofs.runtimeconfig.json
+B:\dofdev\Web Development\org\dofs\bin\Debug\netcoreapp3.1\dofs.runtimeconfig.dev.json
+B:\dofdev\Web Development\org\dofs\bin\Debug\netcoreapp3.1\dofs.dll
+B:\dofdev\Web Development\org\dofs\bin\Debug\netcoreapp3.1\dofs.pdb
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.csproj.AssemblyReference.cache
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.GeneratedMSBuildEditorConfig.editorconfig
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.AssemblyInfoInputs.cache
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.AssemblyInfo.cs
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.csproj.CoreCompileInputs.cache
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.dll
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.pdb
+B:\dofdev\Web Development\org\dofs\obj\Debug\netcoreapp3.1\dofs.genruntimeconfig.cache
