@@ -1,15 +1,26 @@
 <pre class="psuedo">
-<b>stretch</b> = dist(offHand, mainHand)
-max(<b>stretch</b> - deadzone, 0)
-dir = mainHand.fwd
-cursor = mainHand.pos + dir * <b>stretch</b> * 3
+input
+	to   = [pos, ori]
+	from = [pos, ori]
 
-<span class="comment">// backhanded</span>
-delta = mainHand.pos - offHand.pos
-dir = delta.normalized
-<b>stretch</b> = delta.magnitude
-max(<b>stretch</b> - deadzone, 0)
-cursor = mainHand.pos + dir * <b>stretch</b> * 3
+data
+	cursor
+
+init
+	cursor = to.pos
+
+frame
+	vec 		= to.pos - from.pos
+	len		 	= vec.len
+	stretch = max(len - deadzone, 0)
+	dir 		= pointer ? to.ori * v3.fwd : vec / len
+
+	cursor = to.pos + dir * stretch * strength
+
+design
+	pointer  = false
+	deadzone = 0.1
+	strength = 3
 </pre>
 
 <div id="fdeg">&conint;</div>
