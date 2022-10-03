@@ -313,6 +313,7 @@ video {
   color: var(--white);
   padding: 0.5em;
   font-size: 0.75em;
+	tab-size: 2;
 }
 
 .dof .history {
