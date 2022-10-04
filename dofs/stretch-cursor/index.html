@@ -1,36 +1,37 @@
-<head><meta name='viewport' content='width=device-width, initial-scale=1'><link rel='stylesheet' href='/style.css?v1'><script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script><script src='/in-view.min.js'></script><script src='/includes/includer.js?v1'></script><title>stretch-cursor | dofdev</title></head><body><div id='navElement'></div><img class='gif' src='stretch-cursor.gif' /><div style='display: flex; justify-content: space-between; background: black;'><div class='l'>2018.10.07</div><div class='l'>2022.10.03</div></div><div style='display: flex; height: 2px;'><div style='background: green; flex-grow: 0.9999996640297643'></div><div style='background: yellow; flex-grow: 0.01'></div><div style='background: red; flex-grow: 3.3597023574305496E-07'></div></div><div style='display: flex;'><div class='l' style='flex-grow: 0.9999996640297643;'></div><div class='l'>2022.10.03</div></div><h2 style='color: var(--white);text-decoration: none;'>&deg;stretch-cursor</h2><a class='fineprint' href='/dofs' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>MIT License | Copyright &copy; 2022 dofdev</a><pre class="psuedo">
-input
-	to   = [pos, ori]
-	from = [pos, ori]
+<head>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+	<link rel='stylesheet' href='/style.css?v1'>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+	<script src='/in-view.min.js'></script>
+	<script src='/includes/includer.js?v1'></script>
+	<title>stretch-cursor | dofdev</title>
+</head>
 
-data
-	cursor
+<body>
 
-init
-	cursor = to.pos
+<div id='navElement'></div>
+<img class='gif' src='stretch-cursor-pattern.gif' onclick="toggleGif(this)" />
+<br>
+<h2 style='color: var(--white);text-decoration: none;'>&deg;stretch-cursor</h2>
+<a class='fineprint' href='/dofs' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>MIT License &copy; 2022 dofdev</a>
 
-frame
-	vec 		= to.pos - from.pos
-	len		 	= vec.len
-	stretch = max(len - deadzone, 0)
-	dir 		= pointer ? to.ori * v3.fwd : vec / len
 
-	cursor = to.pos + dir * stretch * strength
-
-design
-	pointer  = false
-	deadzone = 0.1
-	strength = 3
-</pre>
+<embed style="width: 100%; height: 600px;"
+	src="http://127.0.0.1:5501/pattern/index.html?src=https://github.com/dofdev/oriels/blob/main/app/dofs/stretch-cursor/og/⧉.txt">
+</embed>
 
 <div id="fdeg">&conint;</div>
 
-<p>
-  "Late 2018 while working on a vr rendition of missile command we went from using the hand as a cursor, to extending it out with the joystick. While brainstorming different scalars one morning the inspiration to use the distance between the two controllers suddenly became clear."
-  <br>
-  -Ethan Merchant
-</p>
+<video src="" /><div id='footerElement'></div>
 
-<img src="stretch-cursor-anim.gif" />
+</body>
 
-<video src="" /><div id='footerElement'></div></body>
+<script>
+	function toggleGif(el) {
+		if (el.src.includes('svg')) {
+			el.src = el.src.replace('svg', 'gif')
+		} else {
+			el.src = el.src.replace('gif', 'svg')
+		}
+	}
+</script>
