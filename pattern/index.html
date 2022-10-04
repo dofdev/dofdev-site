@@ -1,0 +1,240 @@
+<head>
+	<title>pattern</title>
+	<script src='https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js'></script>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+
+</body>
+
+<script>
+
+	legend = [
+		{ term: "pos", definition: "position" },
+		{ term: "dir", definition: "direction" },
+		{ term: "vel", definition: "velocity" },
+		{ term: "ori", definition: "orientation / quaternion" },
+		{ term: "v3", definition: "(x, y, z)" },
+		{ term: "gap", definition: "distance" },
+		{ term: "mag", definition: "magnitude" },
+		{ term: "nor", definition: "normalized" },
+		{ term: "inv", definition: "inverted" },
+		{ term: "lft", definition: "last frame time" },
+		{ term: "max", definition: "returns the larger of two values" },
+	]
+
+	var math = [
+		'=', '+', '-', '*', '^', ' ? ', ':', ' > ', ' < ', ' / ',
+		'(', ')', '[', ']', '{', '}', '!', '&', '|', ',', '.', '±',
+		'if', 'then', 'else'
+	]
+
+	RegExp.quote = function (str) {
+		return str.replace(/([.?*+^$[\]\\(){}|-])/g, "\\$1")
+	}
+
+	$(document).ready(function () {
+		// get url parameters
+		var urlParams = new URLSearchParams(window.location.search)
+
+		if (!urlParams.has('src')) {
+			// make a form that generates the iframe
+			var form = `
+				<input type="text" name="src" placeholder="github pattern url" />
+				<input type="submit" onclick="embedGen()" />
+				<br><br>
+				<textarea id="embed" style="width: 100%; height: 128px"></textarea>
+			`
+			$('body').append(form)
+			return
+		}
+
+		var urlParam = urlParams.get('src')
+
+		var link = urlParam
+		// ⧉
+		var src = link.replace('https://github.com/', '')
+		src = src.replace('blob/', '')
+		var url = 'https://raw.githubusercontent.com/' + src
+
+		$.get(url, function (data) {
+			var hud = `
+				<div style="width: 96px; display: flex; justify-content: space-between;">
+					<a href="" style="opacity: 0.333"><img src="demo.svg" width="24px"></a>
+					<img onclick="copy()" style="cursor: pointer;" src="copy.svg" width="24px">
+					<a href="${link}" target="blank" style=""><img src="git.svg" width="24px"></a>
+				</div>
+				<br>
+			`
+			$('body').append(hud)
+
+			$('body').append('<pre id="pattern"></pre>')
+
+			var varType = 'string'
+			var inputVars = []
+			var designVars = []
+			var dataVars = []
+			var lines = data.split('\n')
+			for (var i = 0; i < lines.length; i++) {
+				var line = lines[i]
+
+				if (line.length <= 1) {
+					varType = ''
+				}
+
+				if (varType == 'input') {
+					inputVars.push(line.split('=')[0].trim())
+				}
+				else if (varType == 'design') {
+					designVars.push(line.split('=')[0].trim())
+				}
+				else if (varType == 'data') {
+					dataVars.push(line.split('=')[0].trim())
+				}
+
+				if (line.trim() == 'input') {
+					varType = 'input'
+				}
+				else if (line.trim() == 'design') {
+					varType = 'design'
+				}
+				else if (line.trim() == 'data') {
+					varType = 'data'
+				}
+			}
+
+			for (var i = 0; i < math.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(math[i]), "g"),
+					`<span class="math">${math[i]}</span>`
+				)
+			}
+
+			for (var i = 0; i < legend.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(legend[i].term), "g"),
+					`<span title="${legend[i].definition}" class="legend">${legend[i].term}</span>`
+				)
+			}
+
+			for (var i = 0; i < inputVars.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(inputVars[i]), "g"),
+					`<span class="input">${inputVars[i]}</span>`
+				)
+			}
+
+			for (var i = 0; i < designVars.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(designVars[i]), "g"),
+					`<span class="design">${designVars[i]}</span>`
+				)
+			}
+
+			for (var i = 0; i < dataVars.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(dataVars[i]), "g"),
+					`<span class="data">${dataVars[i]}</span>`
+				)
+			}
+
+			lines = data.split('\n')
+			for (var i = 0; i < lines.length; i++) {
+				var line = lines[i]
+				if (line.trim()[0] == '#') {
+					data = data.replace(
+						line.trim(),
+						`<span class="comment">${line.trim()}</span>`
+					)
+				}
+			}
+
+			$('#pattern').append(data)
+		})
+	})
+
+	function copy() {
+		var txt = $('#pattern').text()
+
+		// to user clipboard
+		navigator.clipboard.writeText(txt)
+	}
+
+	function embedGen() {
+		var src = $('input[name="src"]').val()
+		var embed = `<iframe src="https://dofdev.org/pattern/?src=${src}" 
+  width="100%" height="600px" 
+  allow="clipboard-read; clipboard-write;">
+</iframe>`
+		$('#embed').val(embed)
+	}
+</script>
+
+<style>
+	@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap');
+
+	body {
+		background: #000;
+		color: white;
+		font-family: 'DM Mono', monospace;
+		font-variant-ligatures: common-ligatures;
+		font-size: 16px;
+	}
+
+	pre {
+		font-size: 16px;
+		margin: 0;
+		padding: 0;
+		padding-right: 1rem;
+		width: fit-content;
+		tab-size: 2;
+	}
+
+	.comment {
+		color: #ffffff80;
+		font-style: italic;
+	}
+
+	.math {
+		color: #ffffff80;
+	}
+
+	.legend {
+		font-weight: 600;
+	}
+
+	.input {
+		color: rgb(128, 128, 255);
+	}
+
+	.design {
+		color: rgb(64, 255, 128);
+	}
+
+	.data {
+		color: rgb(255, 64, 128);
+	}
+
+	/* form stuff */
+	input {
+		background: #000;
+		color: white;
+		border: 1px solid #fff;
+		border-radius: 4px;
+		padding: 0.5rem;
+		font-family: 'DM Mono', monospace;
+		font-size: 16px;
+	}
+
+	textarea {
+		background: #000;
+		color: white;
+		border: 1px solid #fff;
+		border-radius: 4px;
+		padding: 0.5rem;
+		font-family: 'DM Mono', monospace;
+		font-size: 16px;
+	}
+</style>
