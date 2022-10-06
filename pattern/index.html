@@ -70,7 +70,7 @@
 			`
 			$('body').append(hud)
 
-			$('body').append('<pre id="pattern"></pre>')
+			$('body').append('<pre id="pattern" contenteditable="true" spellcheck="false"></pre>')
 
 			var varType = 'string'
 			var inputVars = []
@@ -166,7 +166,7 @@
 		var src = $('input[name="src"]').val()
 		var embed = `<iframe src="https://dofdev.org/pattern/?src=${src}" 
   width="100%" height="600px" 
-  allow="clipboard-read; clipboard-write;">
+  allow="clipboard-read; clipboard-write;" frameBorder="0">
 </iframe>`
 		$('#embed').val(embed)
 	}
