@@ -40,3 +40,11 @@ $(document).ready(function () {
     $(el).css('background-image', '')
   })
 })
+
+function toggleGif(el) {
+	if (el.src.includes('svg')) {
+		el.src = el.src.replace('svg', 'gif')
+	} else {
+		el.src = el.src.replace('gif', 'svg')
+	}
+}

@@ -8,30 +8,24 @@
 </head>
 
 <body>
+	<div id='navElement'></div>
+	<img class='gif' src='stretch-cursor-pattern.gif' onclick="toggleGif(this)" />
+	<br>
 
-<div id='navElement'></div>
-<img class='gif' src='stretch-cursor-pattern.gif' onclick="toggleGif(this)" />
-<br>
-<h2 style='color: var(--white);text-decoration: none;'>&deg;stretch-cursor</h2>
-<a class='fineprint' href='/dofs' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>MIT License &copy; 2022 dofdev</a>
+	<h2 style='color: var(--white);text-decoration: none;'>&deg;stretch-cursor</h2>
+	<a class='fineprint' href='/dofs' style='text-decoration: underline; text-align: right; display: block; margin-bottom: 0.5em;'>MIT License &copy; 2022 dofdev</a>
 
+	<iframe
+		src="https://dofdev.net/pattern/?src=https://github.com/dofdev/oriels/blob/main/app/dofs/stretch-cursor/og/%E2%A7%89.txt"
+		width="100%" height="600px" allow="clipboard-read; clipboard-write;" frameBorder="0">
+	</iframe>
 
-<iframe style="width: 100%; height: 600px;" allow="clipboard-read; clipboard-write;"
-	src="https://dofdev.org/pattern/?src=https://github.com/dofdev/oriels/blob/main/app/dofs/stretch-cursor/og/⧉.txt">
-</iframe>
+	<div id="fdeg">&conint;</div>
 
-<div id="fdeg">&conint;</div>
-
-<video src="" /><div id='footerElement'></div>
+	<div id='footerElement'></div>
 
 </body>
 
 <script>
-	function toggleGif(el) {
-		if (el.src.includes('svg')) {
-			el.src = el.src.replace('svg', 'gif')
-		} else {
-			el.src = el.src.replace('gif', 'svg')
-		}
-	}
+
 </script>
