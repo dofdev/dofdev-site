@@ -373,8 +373,8 @@ video {
 
 .scene {
   position: absolute;
-  bottom: 210px;
-  right: 240px;
+  bottom: 200px;
+  right: 230px;
 
   width: 40px;
   height: 40px;
@@ -435,13 +435,13 @@ video {
 /* transform: translateZ(-20px) rotateX(180deg) rotateY(000deg) rotateZ(270deg); */
 @keyframes spin {
   0% {
-    transform: translateY(0px) rotateX(40deg) rotateY(80deg);
+    transform: translateY(0px) rotateX(0deg) rotateY(80deg);
   }
   50% {
-    transform: translateY(5px) rotateX(220deg) rotateY(260deg);
+    transform: translateY(5px) rotateX(0deg) rotateY(260deg);
   }
   100% {
-    transform: translateY(0px) rotateX(400deg) rotateY(440deg);
+    transform: translateY(0px) rotateX(0deg) rotateY(440deg);
   }
 }
 

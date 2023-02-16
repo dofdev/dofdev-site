@@ -60,112 +60,117 @@
 		var url = 'https://raw.githubusercontent.com/' + src
 
 		$.get(url, function (data) {
-			// get org name from link
-			var org = link.split('/')[3]
-			// to get the license link, we chop off everything after the branch name *after /blob/
-			// *don't assume the branch name is main
-			var licenseLink = link.split('/blob/')[0] + '/blob/' + link.split('/blob/')[1].split('/')[0] + '/LICENSE'
-			var licenseUrl = 'https://raw.githubusercontent.com/' + licenseLink.replace('https://github.com/', '').replace('blob/', '')
-			$.get(licenseUrl, function (raw) {
-				// first line of raw is the license name
-				var licenseName = raw.split('\n')[0]
+			var hud = `
+				<div id="hud" style="display: flex; gap: 10px;">
+					<a href="" style="opacity: 0.333"><img src="demo.svg" width="24px"></a>
+					<img onclick="copy()" style="cursor: pointer;" src="copy.svg" width="24px">
+					<a href="${link}" target="blank" style=""><img src="git.svg" width="24px"></a>
+					<div>&nbsp;</div>
 
-				var hud = `
-					<div style="display: flex; gap: 10px;">
-						<a href="" style="opacity: 0.333"><img src="demo.svg" width="24px"></a>
-						<img onclick="copy()" style="cursor: pointer;" src="copy.svg" width="24px">
-						<a href="${link}" target="blank" style=""><img src="git.svg" width="24px"></a>
-						<div>&nbsp;</div>
-						<a href="${licenseLink}" target="blank" style=""><img src="license.svg" width="24px"></a>
-						<div class="license">${licenseName} &copy; ${org}</div>
-					</div>
-					<br>
-				`
-				$('body').append(hud)
+				</div>
+				<br>
+			`
+			$('body').append(hud)
 
-				$('body').append('<pre id="pattern" contenteditable="true" spellcheck="false"></pre>')
+			$('body').append('<pre id="pattern" contenteditable="true" spellcheck="false"></pre>')
 
-				var varType = 'string'
-				var inputVars = []
-				var designVars = []
-				var dataVars = []
-				var lines = data.split('\n')
-				for (var i = 0; i < lines.length; i++) {
-					var line = lines[i]
+			var varType = 'string'
+			var inputVars = []
+			var designVars = []
+			var dataVars = []
+			var lines = data.split('\n')
+			for (var i = 0; i < lines.length; i++) {
+				var line = lines[i]
 
-					if (line.length <= 1) {
-						varType = ''
-					}
-
-					if (varType == 'input') {
-						inputVars.push(line.split('=')[0].trim())
-					}
-					else if (varType == 'design') {
-						designVars.push(line.split('=')[0].trim())
-					}
-					else if (varType == 'data') {
-						dataVars.push(line.split('=')[0].trim())
-					}
-
-					if (line.trim() == 'input') {
-						varType = 'input'
-					}
-					else if (line.trim() == 'design') {
-						varType = 'design'
-					}
-					else if (line.trim() == 'data') {
-						varType = 'data'
-					}
+				if (line.length <= 1) {
+					varType = ''
 				}
 
-				for (var i = 0; i < math.length; i++) {
+				if (varType == 'input') {
+					inputVars.push(line.split('=')[0].trim())
+				}
+				else if (varType == 'design') {
+					designVars.push(line.split('=')[0].trim())
+				}
+				else if (varType == 'data') {
+					dataVars.push(line.split('=')[0].trim())
+				}
+
+				if (line.trim() == 'input') {
+					varType = 'input'
+				}
+				else if (line.trim() == 'design') {
+					varType = 'design'
+				}
+				else if (line.trim() == 'data') {
+					varType = 'data'
+				}
+			}
+
+			for (var i = 0; i < math.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(math[i]), "g"),
+					`<span class="math">${math[i]}</span>`
+				)
+			}
+
+			for (var i = 0; i < legend.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(legend[i].term), "g"),
+					`<span title="${legend[i].definition}" class="legend">${legend[i].term}</span>`
+				)
+			}
+
+			for (var i = 0; i < inputVars.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(inputVars[i]), "g"),
+					`<span class="input">${inputVars[i]}</span>`
+				)
+			}
+
+			for (var i = 0; i < designVars.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(designVars[i]), "g"),
+					`<span class="design">${designVars[i]}</span>`
+				)
+			}
+
+			for (var i = 0; i < dataVars.length; i++) {
+				data = data.replace(
+					new RegExp(RegExp.quote(dataVars[i]), "g"),
+					`<span class="data">${dataVars[i]}</span>`
+				)
+			}
+
+			lines = data.split('\n')
+			for (var i = 0; i < lines.length; i++) {
+				var line = lines[i]
+				if (line.trim()[0] == '#') {
 					data = data.replace(
-						new RegExp(RegExp.quote(math[i]), "g"),
-						`<span class="math">${math[i]}</span>`
+						line.trim(),
+						`<span class="comment">${line.trim()}</span>`
 					)
 				}
+			}
 
-				for (var i = 0; i < legend.length; i++) {
-					data = data.replace(
-						new RegExp(RegExp.quote(legend[i].term), "g"),
-						`<span title="${legend[i].definition}" class="legend">${legend[i].term}</span>`
-					)
-				}
+			$('#pattern').append(data)
+		})
 
-				for (var i = 0; i < inputVars.length; i++) {
-					data = data.replace(
-						new RegExp(RegExp.quote(inputVars[i]), "g"),
-						`<span class="input">${inputVars[i]}</span>`
-					)
-				}
-
-				for (var i = 0; i < designVars.length; i++) {
-					data = data.replace(
-						new RegExp(RegExp.quote(designVars[i]), "g"),
-						`<span class="design">${designVars[i]}</span>`
-					)
-				}
-
-				for (var i = 0; i < dataVars.length; i++) {
-					data = data.replace(
-						new RegExp(RegExp.quote(dataVars[i]), "g"),
-						`<span class="data">${dataVars[i]}</span>`
-					)
-				}
-
-				lines = data.split('\n')
-				for (var i = 0; i < lines.length; i++) {
-					var line = lines[i]
-					if (line.trim()[0] == '#') {
-						data = data.replace(
-							line.trim(),
-							`<span class="comment">${line.trim()}</span>`
-						)
-					}
-				}
-
-				$('#pattern').append(data)
-			})
+		// get org name from link
+		var org = link.split('/')[3]
+		// to get the license link, we chop off everything after the branch name *after /blob/
+		// *don't assume the branch name is main
+		var licenseLink = link.split('/blob/')[0] + '/blob/' + link.split('/blob/')[1].split('/')[0] + '/LICENSE'
+		var licenseUrl = 'https://raw.githubusercontent.com/' + licenseLink.replace('https://github.com/', '').replace('blob/', '')
+		$.get(licenseUrl, function (data) {
+			// first line of data is the license name
+			var licenseName = data.split('\n')[0]
+			var html = `
+				<a href="${licenseLink}" target="blank" style=""><img src="license.svg" width="24px"></a>
+				<div class="license">${licenseName} &copy; ${org}</div>
+			`
+			$('#hud').append(html)
+			// console.log(licenseName, org)
 		})
 	})
 
