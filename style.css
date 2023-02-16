@@ -384,12 +384,35 @@ video {
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
 }
 
+.degree {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+
+  animation: unspin 6s linear infinite;
+}
+
+@keyframes unspin {
+  0%   { transform: rotateY(460deg); }
+  50%  { transform: rotateY(280deg); }
+  100% { transform: rotateY(100deg); }
+}
+
 .cube {
   width: 100%;
   height: 100%;
   position: relative;
   transform-style: preserve-3d;
+  /* transform: translateZ(-20px); */
+  animation: spin 6s linear infinite;
 }
+
+@keyframes spin {
+  0%   { transform: translateY(0px) rotateY( 80deg); }
+  50%  { transform: translateY(5px) rotateY(260deg); }
+  100% { transform: translateY(0px) rotateY(440deg); }
+}
+
 
 .cube__face {
   position: absolute;
@@ -424,25 +447,6 @@ video {
 
 .cube__face--bottom {
   transform: rotateX(-90deg) translateZ(20px);
-}
-
-.cube {
-  /* transform: translateZ(-20px); */
-  animation: spin 6s linear infinite;
-}
-
-/* turn hover transform into looping animation */
-/* transform: translateZ(-20px) rotateX(180deg) rotateY(000deg) rotateZ(270deg); */
-@keyframes spin {
-  0% {
-    transform: translateY(0px) rotateX(0deg) rotateY(80deg);
-  }
-  50% {
-    transform: translateY(5px) rotateX(0deg) rotateY(260deg);
-  }
-  100% {
-    transform: translateY(0px) rotateX(0deg) rotateY(440deg);
-  }
 }
 
 
