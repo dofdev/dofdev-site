@@ -1,5 +1,5 @@
 const dofTree = [
-  'stretch-cursor|spatial control using hand distance',
+  'stretch-cursor|spatial control using hand distance|stretch-cursor/og/%E2%A7%89.txt',
   'color-cube|color picker & indexer xyz >>> rgb',
   'oriel|volumetric graphical control element',
   'orbital-view|inversely viewed point of interest',

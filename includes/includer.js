@@ -22,8 +22,11 @@ $(document).ready(function () {
     $("head").append("<script src='/dofs/dofs.js?v20'></script>")
     $("#dofElement").load("/dofs/content.html?v20")
   }
-    
-  $("#footerElement").load("/includes/footer.html?v18")
+  
+  // // current year
+  // var d = new Date()
+  // var n = d.getFullYear()
+  // $("footer").html(`&copy; 2018-${n} dofdev`)
 
 
   // $("#feeds").load("feeds.php", { limit: 25 }, function () {
