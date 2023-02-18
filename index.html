@@ -217,7 +217,7 @@
       if (i < dofTree.length) {
         let name = dofTree[i].split('|')[0]
         $('#dofs').append(`
-          <div class="vidcube" onclick="dofOpen(this, ${i})">
+          <div class="vidcube" onclick="dofOpen(this, ${i})" style="cursor: pointer;">
             <video src="/dofs/${name}/${name}.webm" poster="/res/overlay.png" autoplay loop muted></video>
           </div>
         `)
