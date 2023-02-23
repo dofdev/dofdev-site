@@ -374,14 +374,14 @@ video {
 .scene {
   position: absolute;
   bottom: 200px;
-  right: 230px;
+  right: 210px;
 
   width: 40px;
   height: 40px;
   perspective: 150px;
   perspective-origin: 50px 20px;
   transform-style: preserve-3d;
-  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 1));
+  filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.666));
 }
 
 .degree {
@@ -537,7 +537,7 @@ hr {
 }
 
 #fdeg {
-  margin: 4rem auto;
+  margin: 3rem auto;
   font-family: "Nanum Myeongjo", serif;
   text-align: center;
   font-size: 64px;
