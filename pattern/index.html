@@ -61,10 +61,12 @@
 
 		$.get(url, function (data) {
 			var hud = `
-				<div style="width: 96px; display: flex; justify-content: space-between;">
+				<div id="hud" style="display: flex; gap: 10px;">
 					<a href="" style="opacity: 0.333"><img src="demo.svg" width="24px"></a>
 					<img onclick="copy()" style="cursor: pointer;" src="copy.svg" width="24px">
 					<a href="${link}" target="blank" style=""><img src="git.svg" width="24px"></a>
+					<div>&nbsp;</div>
+
 				</div>
 				<br>
 			`
@@ -153,6 +155,23 @@
 
 			$('#pattern').append(data)
 		})
+
+		// get org name from link
+		var org = link.split('/')[3]
+		// to get the license link, we chop off everything after the branch name *after /blob/
+		// *don't assume the branch name is main
+		var licenseLink = link.split('/blob/')[0] + '/blob/' + link.split('/blob/')[1].split('/')[0] + '/LICENSE'
+		var licenseUrl = 'https://raw.githubusercontent.com/' + licenseLink.replace('https://github.com/', '').replace('blob/', '')
+		$.get(licenseUrl, function (data) {
+			// first line of data is the license name
+			var licenseName = data.split('\n')[0]
+			var html = `
+				<a href="${licenseLink}" target="blank" style=""><img src="license.svg" width="24px"></a>
+				<div class="license">${licenseName} &copy; ${org}</div>
+			`
+			$('#hud').append(html)
+			// console.log(licenseName, org)
+		})
 	})
 
 	function copy() {
@@ -173,7 +192,9 @@
 </script>
 
 <style>
-	@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400;1,500&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+	@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 
 	body {
 		background: #000;
@@ -183,8 +204,14 @@
 		font-size: 16px;
 	}
 
+	::-webkit-scrollbar {
+		display: none;
+	}
+	
 	pre {
-		font-size: 16px;
+		font-family: 'DM Mono', monospace;
+		font-variant-ligatures: common-ligatures;
+		font-size: 14px;
 		margin: 0;
 		padding: 0;
 		padding-right: 1rem;
@@ -202,7 +229,7 @@
 	}
 
 	.legend {
-		font-weight: 600;
+		font-weight: 500;
 	}
 
 	.input {
@@ -236,5 +263,12 @@
 		padding: 0.5rem;
 		font-family: 'DM Mono', monospace;
 		font-size: 16px;
+	}
+
+	.license {
+		font-family: 'Atkinson Hyperlegible' sans-serif;
+		font-size: 12px;
+		line-height: 24px;
+		color: #ffffff80;
 	}
 </style>
