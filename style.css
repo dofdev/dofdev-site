@@ -373,21 +373,21 @@ video {
 
 .scene {
   position: absolute;
-  bottom: 200px;
-  right: 210px;
+  bottom: 184px;
+  right: 206px;
 
-  width: 40px;
-  height: 40px;
-  perspective: 150px;
-  perspective-origin: 50px 20px;
+  width: 32px;
+  height: 32px;
+  perspective: 120px;
+  perspective-origin: 32px 16px;
   transform-style: preserve-3d;
   filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.666));
 }
 
 .degree {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
 
   animation: unspin 6s linear infinite;
 }
@@ -416,8 +416,8 @@ video {
 
 .cube__face {
   position: absolute;
-  width: 40px;
-  height: 40px;
+  width: 32px;
+  height: 32px;
   /* background: rgba(204, 204, 204, 0.5); */
 }
 
@@ -426,27 +426,27 @@ video {
 }
 
 .cube__face--front {
-  transform: rotateY(0deg) translateZ(20px);
+  transform: rotateY(0deg) translateZ(16px);
 }
 
 .cube__face--right {
-  transform: rotateY(90deg) translateZ(20px);
+  transform: rotateY(90deg) translateZ(16px);
 }
 
 .cube__face--back {
-  transform: rotateY(180deg) translateZ(20px);
+  transform: rotateY(180deg) translateZ(16px);
 }
 
 .cube__face--left {
-  transform: rotateY(-90deg) translateZ(20px);
+  transform: rotateY(-90deg) translateZ(16px);
 }
 
 .cube__face--top {
-  transform: rotateX(90deg) translateZ(20px);
+  transform: rotateX(90deg) translateZ(16px);
 }
 
 .cube__face--bottom {
-  transform: rotateX(-90deg) translateZ(20px);
+  transform: rotateX(-90deg) translateZ(16px);
 }
 
 
@@ -573,6 +573,10 @@ hr {
     width: 85%;
     margin-top: -32px;
     margin-bottom: -12px;
+  }
+
+  #fdeg {
+    margin: 1.5rem auto;
   }
 
   #latest {
