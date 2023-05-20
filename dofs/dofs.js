@@ -11,4 +11,5 @@ const dofTree = [
   'cubic-flow|embody a cubic bezier curve',
   'reach-cursor|project from a placed anchor',
   'touch-xr|touch based spatial controls',
+  'wave-cursor|finger flexion extension'
 ]
